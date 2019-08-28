@@ -10,13 +10,15 @@ const assembleFeed = ({
   title,
   description,
   link,
+  image,
   items = [],
 }, outputType = OutputTypes.RSS) => {
   const newFeed = new Feed({
     title,
     description,
     link,
-    generator: `HungryHippo`
+    image,
+    generator: `HungryHippo 1.0`
   })
   if (items.length > 0) {
     items.forEach(item => newFeed.addItem(item))
@@ -33,5 +35,6 @@ const assembleFeed = ({
 }
 
 module.exports = {
+  OutputTypes,
   assembleFeed
 }

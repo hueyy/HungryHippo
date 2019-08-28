@@ -8,7 +8,8 @@ const twitterFeed = async (req, res) => {
   if (!handle || handle.length === 0) {
     return res.status(400).send(`handle not specified`)
   }
-  const feed = Digestor.assembleFeed(await TwitterMuncher(handle))
+  const { type } = req.query
+  const feed = Digestor.assembleFeed(await TwitterMuncher(handle), type)
   return res.status(200).send(feed)
 }
 
