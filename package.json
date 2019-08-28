@@ -1,0 +1,25 @@
+{
+  "name": "hungryhippo",
+  "version": "1.0.0",
+  "description": "creates feeds where there were none before",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "start:dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Huey <leejinhuey@gmail.com>",
+  "license": "NONE",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "feed": "^4.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.1.0",
+    "eslint": "^6.2.2",
+    "eslint-plugin-node": "^9.1.0",
+    "nodemon": "^1.19.1"
+  }
+}
