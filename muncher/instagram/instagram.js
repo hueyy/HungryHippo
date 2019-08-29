@@ -38,28 +38,28 @@ const instagramMuncher = async handle => {
     const caption = captionEdges.map(({ node: { text } }) => text).join(`\n`)
     const postLink = `https://instagram.com/p/${shortcode}`
     return {
-      title: caption,
-      link: postLink,
+      author: [{
+        link: link,
+        name: fullName,
+      }],
       content: `<div>
         <p>${caption}</p>
         <img src="${image}" />
         <p>Likes: ${likes} | Comments: ${comments}</p>
         <a href="${postLink}">Link to post</a>
       </div>`,
-      author: [{
-        name: fullName,
-        link: link,
-      }],
+      date: new Date(timestamp * 1000),
       image,
-      date: new Date(timestamp * 1000)
+      link: postLink,
+      title: caption
     }
   })
   return {
-    title: `${fullName} (${handle})`,
     description: bio,
-    link,
     image: profilePic,
     items,
+    link,
+    title: `${fullName} (${handle})`,
   }
 }
 

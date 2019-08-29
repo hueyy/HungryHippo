@@ -24,6 +24,7 @@ app.use((req, res, next) => {
 
 app.get(`/twitter/:handle`, routes.Twitter)
 app.get(`/instagram/:handle`, routes.Instagram)
+app.get(`/facebook/:username`, routes.Facebook)
 
 app.get(`/individual-site`, routes.IndividualSite)
 

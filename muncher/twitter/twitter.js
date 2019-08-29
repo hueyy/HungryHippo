@@ -23,8 +23,8 @@ const twitterMuncher = async (handle) => {
   const accountDescription = $(`#main_content .profile td.details .bio`).text().trim()
   const accountProfileImage = $(`#main_content .profile td.avatar img`).attr(`src`).replace(`normal`, `400x400`)
   const tweets = $(`#main_content .timeline table.tweet`).map((i, el) => {
-    const isRetweet = $(el).find(`.tweet-content .tweet-social-context`).text().indexOf(`retweeted`) > 0
-    const isReply = $(el).find(`.tweet-content .tweet-reply-context`).text().indexOf(`Replying to`) > 0
+    const isRetweet = $(`.tweet-content .tweet-social-context`, el).text().indexOf(`retweeted`) > 0
+    const isReply = $(`.tweet-content .tweet-reply-context`, el).text().indexOf(`Replying to`) > 0
     let prepend = ``
     if (isRetweet) {
       prepend = `RT: `
@@ -33,26 +33,26 @@ const twitterMuncher = async (handle) => {
     }
 
     const author = {
-      name: $(el).find(`tr.tweet-header .user-info .fullname`).text(),
-      link: `https://twitter.com${$(el).find(`tr.tweet-header .user-info a`).attr(`href`)}`,
+      link: `https://twitter.com${$(`tr.tweet-header .user-info a`, el).attr(`href`)}`,
+      name: $(`tr.tweet-header .user-info .fullname`, el).text(),
     }
 
-    const date = parseTwitterDate($(el).find(`.tweet-header .timestamp`).text())
+    const date = parseTwitterDate($(`.tweet-header .timestamp`, el).text())
 
     return {
-      title: `${prepend}${$(el).find(`tr.tweet-container .tweet-text`).text().trim()}`,
-      link: `https://twitter.com/${handle}/status/${$(el).find(`tr.tweet-container .tweet-text`).data(`id`)}`,
-      content: $(el).html(),
       author: [author],
-      date
+      content: $(el).html(),
+      date,
+      link: `https://twitter.com/${handle}/status/${$(`tr.tweet-container .tweet-text`, el).data(`id`)}`,
+      title: `${prepend}${$(`tr.tweet-container .tweet-text`, el).text().trim()}`
     }
   }).get()
   return {
-    title: accountName,
     description: accountDescription,
-    link: `https://twitter.com/${handle}`,
     image: accountProfileImage,
-    items: tweets
+    items: tweets,
+    link: `https://twitter.com/${handle}`,
+    title: accountName
   }
 }
 

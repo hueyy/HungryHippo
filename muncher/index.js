@@ -1,5 +1,6 @@
 module.exports = {
-  Twitter: require(`./twitter`),
+  Facebook: require(`./facebook`),
+  IndividualSites: require(`./individual-sites`),
   Instagram: require(`./instagram`),
-  IndividualSites: require(`./individual-sites`)
+  Twitter: require(`./twitter`),
 }
