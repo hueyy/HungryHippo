@@ -4,6 +4,25 @@
 
 > To a hungry hippo, everything is a feed
 
+HungryHippo generates RSS/ATOM/JSON feeds from regularly-updating public sites.
+
+## Examples
+
+| Site      |                                   Sample Link                                    | HungryHippo Link                                                                                         |
+| --------- | :------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------- |
+| Facebook  |                [facebook.com/smbccomics](facebook.com/smbccomics)                | [/facebook/smbccomics](https://hungryhippo.ketupat.me/facebook/smbccomics)                               |
+| Twitter   |            [twitter.com/onedevloperarmy](twitter.com/onedevloperarmy)            | [/twitter/onedevloperarmy](https://hungryhippo.ketupat.me/twitter/onedevloperarmy)                       |
+| Instagram | [instagram.com/nathanwpylestrangeplanet](instagram.com/nathanwpylestrangeplanet) | [/instagram/nathanwpylestrangeplanet](https://hungryhippo.ketupat.me/instagram/nathanwpylestrangeplanet) |
+
+Pop the HungryHippo link into a RSS reader like [Feedly](https://feedly.com), [TinyTinyRSS](https://tt-rss.org/), or [RSSOwl](www.rssowl.org). Or you can [use IE](https://www.wikihow.com/Subscribe-to-and-Read-RSS-Feeds-with-Internet-Explorer).
+
+## Site Support
+
+- [x] Facebook (public pages)
+- [x] Twitter (public)
+- [x] Instagram (public)
+- [] Drupal
+
 ## Running HungryHippo
 
 With docker-compose:

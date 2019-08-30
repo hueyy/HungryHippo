@@ -30,6 +30,7 @@ app.use((req, res, next) => {
   next()
 })
 
+app.get(`/`, routes.Home)
 app.get(`/twitter/:handle`, routes.Twitter)
 app.get(`/instagram/:handle`, routes.Instagram)
 app.get(`/facebook/:username`, routes.Facebook)
