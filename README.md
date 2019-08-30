@@ -14,7 +14,7 @@ HungryHippo generates RSS/ATOM/JSON feeds from regularly-updating public sites.
 | Twitter   |            [twitter.com/onedevloperarmy](https://twitter.com/onedevloperarmy)            | [/twitter/onedevloperarmy](https://hungryhippo.ketupat.me/twitter/onedevloperarmy)                       |
 | Instagram | [instagram.com/nathanwpylestrangeplanet](https://instagram.com/nathanwpylestrangeplanet) | [/instagram/nathanwpylestrangeplanet](https://hungryhippo.ketupat.me/instagram/nathanwpylestrangeplanet) |
 
-Pop the HungryHippo link into a RSS reader like [Feedly](https://feedly.com), [TinyTinyRSS](https://tt-rss.org/), or [RSSOwl](www.rssowl.org). Or you can [use IE](https://www.wikihow.com/Subscribe-to-and-Read-RSS-Feeds-with-Internet-Explorer).
+Pop the HungryHippo link into a RSS reader like [Feedly](https://feedly.com), [TinyTinyRSS](https://tt-rss.org/), or [RSSOwl](http://www.rssowl.org). Or you can [use IE](https://www.wikihow.com/Subscribe-to-and-Read-RSS-Feeds-with-Internet-Explorer).
 
 ## Site Support
 
