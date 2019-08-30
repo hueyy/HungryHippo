@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "start:dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "echo \"Building not necessary\" && exit 0",
+    "test": "echo \"No tests\" && exit 0"
   },
   "author": "Huey <leejinhuey@gmail.com>",
   "license": "NONE",
