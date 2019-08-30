@@ -34,6 +34,7 @@ app.get(`/`, routes.Home)
 app.get(`/twitter/:handle`, routes.Twitter)
 app.get(`/instagram/:handle`, routes.Instagram)
 app.get(`/facebook/:username`, routes.Facebook)
+app.get(`/drupal`, routes.Drupal)
 
 app.get(`/individual-site`, routes.IndividualSite)
 
