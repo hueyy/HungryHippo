@@ -3,12 +3,18 @@ if (process.env.NODE_ENV !== `production`) {
 }
 
 const express = require(`express`)
+const helmet = require(`helmet`)
+const morgan = require(`morgan`)
+
 const routes = require(`./routes`)
 const Digestor = require(`./digestor`)
 
 const app = express()
 
 const PORT = process.env.PORT
+
+app.use(helmet())
+app.use(morgan(`combined`))
 
 app.use((req, res, next) => {
   const { type } = req.query
