@@ -9,8 +9,8 @@
 With docker-compose:
 
 ```bash
-  docker-compose -f deploy/docker-compose.yml build
-  docker-compose -f deploy/docker-compose.yml up
+  docker build . -t hungryhippo
+  docker run -p 3000:3000 hungryhippo
 ```
 
 Without docker:
