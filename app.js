@@ -25,6 +25,8 @@ app.use((req, res, next) => {
   } else { // type === Digestor.OutputTypes.RSS
     res.header(`Content-Type`, `application/rss+xml`)
   }
+
+  res.header({ 'Cache-Control': `public, max-age=${60 * 10}` }) // standard cache of 10 minutes
   next()
 })
 
