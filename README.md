@@ -21,7 +21,7 @@ Pop the HungryHippo link into a RSS reader like [Feedly](https://feedly.com), [T
 - [x] Facebook (public pages)
 - [x] Twitter (public)
 - [x] Instagram (public)
-- [] Drupal
+- [ ] Drupal
 
 ## Running HungryHippo
 
