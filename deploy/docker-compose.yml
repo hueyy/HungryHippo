@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  server:
+    build: .
+    image: hungry-hippo-server
+    env_file: .env
+    ports:
+      - "127.0.0.1:${PORT}:${PORT}"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    ports:
+      - '127.0.0.1:6379:6379'
