@@ -16,13 +16,6 @@ HungryHippo generates RSS/ATOM/JSON feeds from regularly-updating public sites.
 
 Pop the HungryHippo link into a RSS reader like [Feedly](https://feedly.com), [TinyTinyRSS](https://tt-rss.org/), or [RSSOwl](http://www.rssowl.org). Or you can [use IE](https://www.wikihow.com/Subscribe-to-and-Read-RSS-Feeds-with-Internet-Explorer).
 
-## Site Support
-
-- [x] Facebook (public pages)
-- [x] Twitter (public)
-- [x] Instagram (public)
-- [x] Drupal
-
 ## Running HungryHippo
 
 With docker-compose:

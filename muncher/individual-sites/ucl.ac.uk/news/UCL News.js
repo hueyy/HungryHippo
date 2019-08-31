@@ -1,6 +1,6 @@
 const axios = require(`axios`)
 
-const drupalMuncher = async (url, { title, description, image, link } = {}) => {
+const UCLNewsMuncher = async (url, { title, description, image, link } = {}) => {
   const resp = await axios.get(url)
   const {
     response: {
@@ -38,4 +38,4 @@ const drupalMuncher = async (url, { title, description, image, link } = {}) => {
   }
 }
 
-module.exports = drupalMuncher
+module.exports = UCLNewsMuncher
