@@ -21,10 +21,10 @@
     "morgan": "^1.9.1"
   },
   "devDependencies": {
-    "dotenv": "^8.1.0",
-    "eslint": "^6.2.2",
-    "eslint-plugin-node": "^9.1.0",
-    "eslint-plugin-sort-keys-fix": "^1.0.1",
-    "nodemon": "^1.19.1"
+    "dotenv": "8.1.0",
+    "eslint": "6.2.2",
+    "eslint-plugin-node": "9.1.0",
+    "eslint-plugin-sort-keys-fix": "1.0.1",
+    "nodemon": "1.19.1"
   }
 }
