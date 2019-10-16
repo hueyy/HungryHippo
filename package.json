@@ -21,7 +21,7 @@
     "morgan": "^1.9.1"
   },
   "devDependencies": {
-    "dotenv": "8.1.0",
+    "dotenv": "8.2.0",
     "eslint": "6.4.0",
     "eslint-plugin-node": "10.0.0",
     "eslint-plugin-sort-keys-fix": "1.0.1",
