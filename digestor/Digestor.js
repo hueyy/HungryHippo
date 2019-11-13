@@ -1,9 +1,9 @@
-const { Feed } = require(`feed`)
+const { Feed } = require(`@hueyy/feed`)
 
 const OutputTypes = {
-  RSS: `rss`,
   ATOM: `atom`,
-  JSON: `json`
+  JSON: `json`,
+  RSS: `rss`
 }
 
 const assembleFeed = ({
@@ -14,11 +14,11 @@ const assembleFeed = ({
   items = [],
 }, outputType = OutputTypes.RSS) => {
   const newFeed = new Feed({
-    title,
     description,
-    link,
+    generator: `HungryHippo 1.0`,
     image,
-    generator: `HungryHippo 1.0`
+    link,
+    title
   })
   if (items.length > 0) {
     items.forEach(item => newFeed.addItem(item))

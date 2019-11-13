@@ -12,11 +12,11 @@
   "author": "Huey <leejinhuey@gmail.com>",
   "license": "NONE",
   "dependencies": {
+    "@hueyy/feed": "^4.1.0",
     "axios": "^0.19.0",
     "cheerio": "^1.0.0-rc.3",
     "dayjs": "^1.8.17",
     "express": "^4.17.1",
-    "feed": "^4.0.0",
     "helmet": "^3.21.2",
     "morgan": "^1.9.1"
   },
