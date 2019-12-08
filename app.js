@@ -34,7 +34,7 @@ app.get(`/`, routes.Home)
 app.get(`/twitter/:handle`, routes.Twitter)
 app.get(`/instagram/:handle`, routes.Instagram)
 app.get(`/facebook/:username`, routes.Facebook)
-app.get(`/individual-site/:site/:subsite`, routes.IndividualSite)
+app.get(`/individual-site/:site/:subsite?`, routes.IndividualSite)
 
 app.listen(
   PORT,

@@ -6,11 +6,12 @@ const individualSiteFeed = async (req, res) => {
   if (!site || site.length === 0) {
     return res.status(400).send(`site not specified`)
   }
-  if (!subsite || subsite.length === 0) {
-    return res.status(400).send(`subsite not specified`)
-  }
 
-  const IndividualMuncher = Muncher.IndividualSites[site][subsite]
+  let IndividualMuncher = Muncher.IndividualSites[site]
+
+  if (subsite && subsite.length > 0) {
+    IndividualMuncher = Muncher.IndividualSites[site][subsite]
+  }
 
   const { url, type, title, link, description, image } = req.query
   if (!url || url.length === 0) {
