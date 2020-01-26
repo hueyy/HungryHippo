@@ -35,7 +35,11 @@ const getImage = async (tweetId) => {
   const resp = await twitterClient.get(`/image/status/${tweetId}`)
   const $ = cheerio.load(resp.data)
   const imageURL = $(`.main-tweet .card-photo .media img`).attr(`src`)
-  return imageURL.replace(`:small`, ``)
+  if (imageURL) {
+    return imageURL.replace(`:small`, ``)
+  }
+  // sensitive media
+  return null
 }
 
 const twitterMuncher = async (handle) => {
