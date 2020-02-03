@@ -37,6 +37,7 @@ const instagramMuncher = async handle => {
   } }) => {
     const caption = captionEdges.map(({ node: { text } }) => text).join(`\n`)
     const postLink = `https://instagram.com/p/${shortcode}`
+    const secureImageLink = image.replace(/^http:\/\//, `https://`)
     return {
       author: [{
         link: link,
@@ -44,12 +45,12 @@ const instagramMuncher = async handle => {
       }],
       content: `<div>
         <p>${caption}</p>
-        <img src="${image}" />
+        <img src="${secureImageLink}" />
         <p>Likes: ${likes} | Comments: ${comments}</p>
         <a href="${postLink}">Link to post</a>
       </div>`,
       date: new Date(timestamp * 1000),
-      image,
+      image: secureImageLink,
       link: postLink,
       title: caption
     }
