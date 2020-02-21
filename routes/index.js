@@ -3,5 +3,6 @@ module.exports = {
   Home: require(`./Home`),
   IndividualSite: require(`./IndividualSite`),
   Instagram: require(`./Instagram`),
-  Twitter: require(`./Twitter`)
+  Linkedin: require(`./Linkedin`),
+  Twitter: require(`./Twitter`),
 }

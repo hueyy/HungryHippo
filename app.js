@@ -34,6 +34,7 @@ app.get(`/`, routes.Home)
 app.get(`/twitter/:handle`, routes.Twitter)
 app.get(`/instagram/:handle`, routes.Instagram)
 app.get(`/facebook/:username`, routes.Facebook)
+app.get(`/linkedin/:path/:subpath`, routes.Linkedin)
 app.get(`/individual-site/:site/:subsite?`, routes.IndividualSite)
 
 app.listen(
