@@ -1,17 +1,40 @@
 module.exports = {
+  parser: "@typescript-eslint/parser",
   env: {
     node: true
   },
   plugins: [
-    "sort-keys-fix"
+    `json-format`,
+    `security`,
+    `disable`,
+    `no-secrets`,
+    `sonarjs`,
+    `sort-keys-fix`,
+    `import`,
   ],
+  processor: `disable/disable`,
   extends: [
     "eslint:recommended",
-    "plugin:node/recommended"
+    "plugin:node/recommended",
+    `plugin:@typescript-eslint/recommended`,
+    `plugin:security/recommended`,
+    `plugin:sonarjs/recommended`,
+    `plugin:unicorn/recommended`,
+    `plugin:import/errors`,
+    `plugin:import/warnings`,
+    `plugin:import/typescript`
+  ],
+  overrides: [
+    {
+      files: [`*.json`],
+      settings: {
+        "disable/plugins": [`no-secrets`],
+      },
+    },
   ],
   rules: {
     semi: [
-      "error",
+      "warn",
       "never"
     ],
     quotes: [

@@ -1,0 +1,14 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        },
+        "shippedProposals": true
+      }
+    ],
+    "@babel/preset-typescript"
+  ]
+}

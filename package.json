@@ -4,28 +4,44 @@
   "description": "creates feeds where there were none before",
   "main": "app.js",
   "scripts": {
+    "babel-node": "babel-node --extensions \".ts\" src/app.ts",
+    "start:dev": "nodemon -e ts --exec npm run babel-node",
     "start": "node app.js",
-    "start:dev": "nodemon app.js",
-    "build": "echo \"Building not necessary\" && exit 0",
+    "build": "babel src -d dist --extensions \".ts\" --copy-files --source-maps",
+    "start:prod": "node dist/app",
     "test": "echo \"No tests\" && exit 0"
   },
-  "author": "Huey <leejinhuey@gmail.com>",
+  "author": "Huey <hello@huey.xyz>",
   "license": "GPL-3.0-only",
   "dependencies": {
     "@hueyy/feed": "^4.1.0",
-    "axios": "^0.19.0",
+    "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
-    "dayjs": "^1.8.17",
+    "dayjs": "^1.8.33",
     "express": "^4.17.1",
-    "helmet": "^3.21.2",
-    "morgan": "^1.9.1"
+    "helmet": "^3.23.3",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "dotenv": "8.2.0",
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/node": "^14.0.27",
     "eslint": "6.8.0",
+    "eslint-plugin-disable": "^2.0.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-json-format": "^2.0.1",
+    "eslint-plugin-no-secrets": "^0.6.8",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-sort-keys-fix": "1.1.0",
-    "nodemon": "2.0.2"
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.1",
+    "eslint-plugin-unicorn": "^21.0.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "nodemon": "^2.0.4",
+    "typescript": "^3.9.7"
   },
   "engines": {
     "node": ">=12.13.0"
