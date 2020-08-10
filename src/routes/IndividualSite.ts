@@ -15,7 +15,7 @@ const individualSiteFeed = async (req, res) => {
 
   const { url, type, title, link, description, image } = req.query
   if (!url || url.length === 0) {
-    return res.status(400).send(`url not specified`)
+    console.warn(`url not specified`)
   }
   const options = { description, image, link, title }
   try {
