@@ -38,8 +38,6 @@ const TelegraphOpinionMuncher = async (
     return item
   }).get()
 
-  console.log(items)
-
   return {
     description: $(`meta[property='og:description']`).text().trim(),
     items,

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const UCLNewsMuncher = async (url, { title = `UCL News`, description = ``, image = ``, link = `` } = {}) => {
   const resp = await axios.get(url)
-  console.log(url)
+
   const {
     response: {
       resultPacket: {

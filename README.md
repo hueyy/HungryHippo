@@ -33,7 +33,7 @@ Without docker:
 
 ```bash
   npm ci
-  npm run start
+  npm run start:dev
 ```
 
 ## Credits

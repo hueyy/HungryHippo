@@ -18,8 +18,13 @@ const individualSiteFeed = async (req, res) => {
     return res.status(400).send(`url not specified`)
   }
   const options = { description, image, link, title }
-  const feed = Digestor.assembleFeed(await IndividualMuncher(url, options), type)
-  return res.status(200).send(feed)
+  try {
+    const feed = Digestor.assembleFeed(await IndividualMuncher(url, options), type)
+    return res.status(200).send(feed)
+  } catch (error) {
+    return res.status(400).send(error.message)
+  }
+
 }
 
 export default individualSiteFeed
