@@ -2,11 +2,11 @@
   "name": "hungryhippo",
   "version": "1.0.0",
   "description": "creates feeds where there were none before",
-  "main": "app.js",
+  "main": "dist/app.js",
   "scripts": {
     "babel-node": "babel-node --extensions \".ts\" src/app.ts",
     "start:dev": "nodemon -e ts --exec npm run babel-node",
-    "start": "node app.js",
+    "start": "node dist/app.js",
     "build": "babel src -d dist --extensions \".ts\" --copy-files --source-maps",
     "start:prod": "node dist/app",
     "test": "echo \"No tests\" && exit 0"
