@@ -1,5 +1,7 @@
 import IAmGoing from './iamgoing.co.uk'
+import LawSocietyUK from './lawsociety.org.uk'
 import RollOnFriday from './rollonfriday.com'
+import SingaporeLawBlog from './singaporelawblog.sg'
 import Telegraph from './telegraph.co.uk'
 import EdgeSingapore from './theedgesingapore.com'
 import TheTab from './thetab.com'
@@ -11,5 +13,7 @@ export default {
   'thetab.com': TheTab,
   'rollonfriday.com': RollOnFriday,
   'iamgoing.co.uk': IAmGoing,
-  'theedgesingapore.com': EdgeSingapore
+  'theedgesingapore.com': EdgeSingapore,
+  'singaporelawblog.sg': SingaporeLawBlog,
+  'lawsociety.org.uk': LawSocietyUK,
 }

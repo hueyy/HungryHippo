@@ -15,8 +15,6 @@ const edgeMuncher = async () => {
     image: $(`.news-image img`, el).attr(`src`)
   })).get()
 
-  console.log(JSON.stringify(items, null, 2))
-
   return {
     title: $(`title`).first().text().trim(),
     description: $(`meta[property='og:description']`).text().trim(),
