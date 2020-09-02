@@ -15,7 +15,7 @@
   "license": "GPL-3.0-only",
   "dependencies": {
     "@hueyy/feed": "^4.1.0",
-    "axios": "^0.20.0",
+    "axios": "git+https://github.com/hueyy/axios.git",
     "cheerio": "^1.0.0-rc.3",
     "dayjs": "^1.8.33",
     "express": "^4.17.1",

@@ -1,4 +1,5 @@
 import IAmGoing from './iamgoing.co.uk'
+import NUSLaw from './law.nus.edu.sg'
 import LawSocietyUK from './lawsociety.org.uk'
 import RollOnFriday from './rollonfriday.com'
 import SingaporeLawBlog from './singaporelawblog.sg'
@@ -16,4 +17,5 @@ export default {
   'theedgesingapore.com': EdgeSingapore,
   'singaporelawblog.sg': SingaporeLawBlog,
   'lawsociety.org.uk': LawSocietyUK,
+  'law.nus.edu.sg': NUSLaw
 }
