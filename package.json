@@ -19,7 +19,7 @@
     "cheerio": "^1.0.0-rc.3",
     "dayjs": "^1.8.33",
     "express": "^4.17.1",
-    "helmet": "^3.23.3",
+    "helmet": "^4.0.0",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
