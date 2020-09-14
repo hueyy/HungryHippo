@@ -16,11 +16,11 @@ const individualSiteFeed = async (req, res) => {
     IndividualMuncher = Muncher.IndividualSites[site][subsite]
   }
 
-  const { url, type, title, link, description, image } = req.query
+  const { url, type, title, link, description, image, ...others } = req.query
   if (!url || url.length === 0) {
     console.warn(`url not specified`)
   }
-  const options = { description, image, link, title }
+  const options = { description, image, link, title, ...others }
   try {
     const feed = Digestor.assembleFeed(await IndividualMuncher(url, options), type)
     return res.status(200).send(feed)

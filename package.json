@@ -20,7 +20,8 @@
     "dayjs": "^1.8.33",
     "express": "^4.17.1",
     "helmet": "^4.0.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "qs": "^6.9.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",

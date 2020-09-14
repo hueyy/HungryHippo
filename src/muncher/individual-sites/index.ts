@@ -1,10 +1,13 @@
 import AllenGledhill from './allenandgledhill.com'
 import Amica from './amicalaw.com'
+import BakerMcKenzie from './bakermckenzie.com'
 import Cutlefish from './cutle.fish'
+import DrewNapier from './drewnapier.com'
 import IAmGoing from './iamgoing.co.uk'
 import NUSLaw from './law.nus.edu.sg'
 import LawSocietyUK from './lawsociety.org.uk'
 import RollOnFriday from './rollonfriday.com'
+import SAL from './sal.org.sg'
 import SCCA from './scca.org.sg'
 import SingaporeLawBlog from './singaporelawblog.sg'
 import Telegraph from './telegraph.co.uk'
@@ -30,4 +33,7 @@ export default {
   'allenandgledhill.com': AllenGledhill,
   'thepractice.law.harvard.edu': HarvardThePractice,
   'cutle.fish': Cutlefish,
+  'sal.org.sg': SAL,
+  'drewnapier.com': DrewNapier,
+  'bakermckenzie.com': BakerMcKenzie
 }
