@@ -12,13 +12,15 @@ app.use(helmet())
 app.use(morgan(`combined`))
 
 app.use((req, res, next) => {
-  const { type } = req.query
-  if (type === Digestor.OutputTypes.ATOM) {
-    res.header(`Content-Type`, `application/atom+xml`)
-  } else if (type === Digestor.OutputTypes.JSON) {
-    res.header(`Content-Type`, `application/json`)
-  } else { // type === Digestor.OutputTypes.RSS
-    res.header(`Content-Type`, `application/rss+xml`)
+  if (res.get(`Content-Type`) !== `application/json`) {
+    const { type } = req.query
+    if (type === Digestor.OutputTypes.ATOM) {
+      res.header(`Content-Type`, `application/atom+xml`)
+    } else if (type === Digestor.OutputTypes.JSON) {
+      res.header(`Content-Type`, `application/json`)
+    } else { // type === Digestor.OutputTypes.RSS
+      res.header(`Content-Type`, `application/rss+xml`)
+    }
   }
 
   res.header({ 'Cache-Control': `public, max-age=${60 * 10}` }) // standard cache of 10 minutes
@@ -30,6 +32,7 @@ app.get(`/twitter/:handle`, Routes.Twitter)
 app.get(`/instagram/:handle`, Routes.Instagram)
 app.get(`/facebook/:username`, Routes.Facebook)
 app.get(`/linkedin/:path/:subpath`, Routes.Linkedin)
+app.get(`/individual-site`, Routes.IndividualSite)
 app.get(`/individual-site/:site/:subsite?`, Routes.IndividualSite)
 
 app.listen(

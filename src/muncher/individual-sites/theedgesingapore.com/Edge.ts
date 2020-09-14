@@ -4,9 +4,9 @@ import cheerio from 'cheerio'
 const BASE_URL = `https://www.theedgesingapore.com`
 
 const edgeMuncher = async () => {
-  const resp = await axios.get(`${BASE_URL}/section/latest`)
+  const { data } = await axios.get(`${BASE_URL}/section/latest`)
 
-  const $ = cheerio.load(resp.data)
+  const $ = cheerio.load(data)
 
   const items = $(`.content .node-article`).map((_, el) => ({
     title: $(`.news-title`, el).text().trim(),
