@@ -33,11 +33,18 @@ const instagramMuncher = async handle => {
     },
     edge_media_to_comment: {
       count: comments
-    }
+    },
+    edge_sidecar_to_children: sidecar
   } }) => {
     const caption = captionEdges.map(({ node: { text } }) => text).join(`\n`)
     const postLink = `https://instagram.com/p/${shortcode}`
-    const secureImageLink = image.replace(/^http:\/\//, `https://`)
+
+    const images = (sidecar?.edges
+      ? sidecar.edges.map(({ node: { display_url } }) => display_url)
+      : [image]
+    ).map(i => i.replace(/^http:\/\//, `https://`))
+      .map(img => `<img src="${img}" />`)
+
     return {
       author: [{
         link: link,
@@ -45,12 +52,12 @@ const instagramMuncher = async handle => {
       }],
       content: `<div>
         <p>${caption}</p>
-        <img src="${secureImageLink}" />
+        ${images.join(``)}
         <p>Likes: ${likes} | Comments: ${comments}</p>
         <a href="${postLink}">Link to post</a>
       </div>`,
       date: new Date(timestamp * 1000),
-      image: secureImageLink,
+      image: images[0],
       link: postLink,
       title: caption
     }
