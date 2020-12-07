@@ -16,6 +16,7 @@ import EdgeSingapore from './theedgesingapore.com'
 import HarvardThePractice from './thepractice.law.harvard.edu'
 import TheTab from './thetab.com'
 import UCL from './ucl.ac.uk'
+import AcademyPublishing from './academypublishing.org.sg'
 
 export default {
   'telegraph.co.uk': Telegraph,
@@ -35,5 +36,6 @@ export default {
   'cutle.fish': Cutlefish,
   'sal.org.sg': SAL,
   'drewnapier.com': DrewNapier,
-  'bakermckenzie.com': BakerMcKenzie
+  'bakermckenzie.com': BakerMcKenzie,
+  'academypublishing.org.sg': AcademyPublishing,
 }

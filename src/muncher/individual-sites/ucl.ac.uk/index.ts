@@ -1,4 +1,6 @@
 import UCLNews from './news'
+import StudentJournals from './student-journals'
 export default {
-  news: UCLNews
+  news: UCLNews,
+  'student-journals': StudentJournals
 }
