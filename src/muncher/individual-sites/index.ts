@@ -17,6 +17,8 @@ import HarvardThePractice from './thepractice.law.harvard.edu'
 import TheTab from './thetab.com'
 import UCL from './ucl.ac.uk'
 import AcademyPublishing from './academypublishing.org.sg'
+import EJLT from './ejlt.org'
+import Lexxion from './lexxion.eu'
 
 export default {
   'telegraph.co.uk': Telegraph,
@@ -38,4 +40,6 @@ export default {
   'drewnapier.com': DrewNapier,
   'bakermckenzie.com': BakerMcKenzie,
   'academypublishing.org.sg': AcademyPublishing,
+  'ejlt.org': EJLT,
+  'lexxion.eu': Lexxion,
 }
