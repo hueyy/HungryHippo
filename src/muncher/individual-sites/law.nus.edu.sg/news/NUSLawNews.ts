@@ -1,28 +1,41 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
-import type { CustomAxiosRequestConfig } from '../../../../types/axios'
+import { chromium } from 'playwright-chromium'
 
-const URL = `http://law.nus.edu.sg`
+const BASE_URL = `http://law.nus.edu.sg`
+const FULL_URL = `${BASE_URL}/media`
 
 const NUSLawNewsMuncher = async () => {
-  const req = axios.create({
-    insecureHTTPParser: true
-  } as CustomAxiosRequestConfig)
-  const { data } = await req.get(URL)
 
-  const $ = cheerio.load(data)
+  const browser = await chromium.launch()
+  const page = await browser.newPage()
 
-  const table = $(`.expandable-box.new > .inner > table`).eq(0)
-  const items = $(`tbody > tr`, table).map((_, el) => ({
-    title: $(`> td:nth-of-type(2)`, el).text().trim(),
-    link: $(`> td:nth-of-type(2) a`, el).attr(`href`),
-  })).get()
+  await page.goto(FULL_URL)
+
+  let items = []
+
+  try {
+    await page.waitForLoadState()
+    await page.waitForSelector(`#news-listing-widget .col-lg-12.row-eq-height`)
+
+    items = await page.$$eval(`#news-listing-widget .col-lg-12.row-eq-height`, (els) => els.map((el) => ({
+      title: el.querySelector(`.news-title`).textContent.trim(),
+      link: el.querySelector(`a`).getAttribute(`href`),
+      content: el.innerHTML,
+      date: new Date(el.querySelector(`.news-date`).textContent.trim()),
+      image: el.querySelector(`.news-image > img`).getAttribute(`src`)
+    })))
+
+
+  } catch (error) {
+    console.error(error)
+  }
+
+
+  await browser.close()
 
   return {
-    title: `NUS Law News`,
-    description: `Latest NUS Law news`,
+    title: `NUS Law Media`,
     items,
-    link: URL
+    link: FULL_URL
   }
 }
 
