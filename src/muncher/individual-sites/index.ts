@@ -19,6 +19,7 @@ import UCL from './ucl.ac.uk'
 import AcademyPublishing from './academypublishing.org.sg'
 import EJLT from './ejlt.org'
 import Lexxion from './lexxion.eu'
+import SJLS from './law1.nus.edu.sg'
 
 export default {
   'telegraph.co.uk': Telegraph,
@@ -42,4 +43,5 @@ export default {
   'academypublishing.org.sg': AcademyPublishing,
   'ejlt.org': EJLT,
   'lexxion.eu': Lexxion,
+  'law1.nus.edu.sg': SJLS,
 }
