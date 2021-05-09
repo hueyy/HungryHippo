@@ -32,7 +32,7 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-typescript": "^7.12.7",
     "@types/node": "^14.14.14",
-    "eslint": "7.9.0",
+    "eslint": "7.26.0",
     "eslint-plugin-disable": "^2.0.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-json-format": "^2.0.1",
