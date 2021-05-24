@@ -2,49 +2,64 @@
   "name": "hungryhippo",
   "version": "1.0.0",
   "description": "creates feeds where there were none before",
+  "license": "GPL-3.0-only",
+  "author": "Huey <hello@huey.xyz>",
   "main": "dist/app.js",
   "scripts": {
     "babel-node": "babel-node --extensions \".ts\" src/app.ts",
-    "start:dev": "nodemon -e ts --exec npm run babel-node",
-    "start": "node dist/app.js",
     "build": "babel src -d dist --extensions \".ts\" --copy-files --source-maps",
+    "lint:staged": "lint-staged",
+    "prepare": "husky install",
+    "start": "node dist/app.js",
+    "start:dev": "nodemon -e ts --exec npm run babel-node",
     "start:prod": "node dist/app",
     "test": "echo \"No tests\" && exit 0"
   },
-  "author": "Huey <hello@huey.xyz>",
-  "license": "GPL-3.0-only",
+  "lint-staged": {
+    "*.{ts,d.ts}": [
+      "tsc --allowSyntheticDefaultImports --jsx react --noEmit --esModuleInterop --moduleResolution node --skipLibCheck --resolveJsonModule --downlevelIteration --lib ESNEXT,ES2020.String,dom"
+    ],
+    "*.{ts,js,json}": [
+      "eslint --fix --ignore-pattern"
+    ],
+    "package.json": [
+      "npx sort-package-json"
+    ]
+  },
   "dependencies": {
     "@hueyy/feed": "^4.1.0",
     "axios": "git+https://github.com/hueyy/axios.git",
-    "cheerio": "^1.0.0-rc.3",
-    "dayjs": "^1.9.7",
+    "cheerio": "^1.0.0-rc.9",
+    "dayjs": "^1.10.4",
     "express": "^4.17.1",
-    "form-data": "^3.0.0",
-    "helmet": "^4.2.0",
+    "form-data": "^4.0.0",
+    "helmet": "^4.6.0",
     "morgan": "^1.10.0",
-    "playwright-chromium": "^1.7.0",
-    "qs": "^6.9.4"
+    "playwright-chromium": "^1.11.1",
+    "qs": "^6.10.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.10",
-    "@babel/node": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "@babel/preset-typescript": "^7.12.7",
-    "@types/node": "^14.14.14",
-    "eslint": "7.9.0",
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/node": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/node": "^15.6.0",
+    "@typescript-eslint/eslint-plugin": "^4.24.0",
+    "eslint": "7.27.0",
     "eslint-plugin-disable": "^2.0.1",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-import": "^2.23.3",
     "eslint-plugin-json-format": "^2.0.1",
-    "eslint-plugin-no-secrets": "^0.6.8",
+    "eslint-plugin-no-secrets": "^0.8.9",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-sonarjs": "^0.7.0",
     "eslint-plugin-sort-keys-fix": "^1.1.1",
-    "eslint-plugin-unicorn": "^21.0.0",
-    "husky": "^4.3.6",
-    "lint-staged": "^10.5.3",
-    "nodemon": "^2.0.6",
-    "typescript": "^3.9.7"
+    "eslint-plugin-unicorn": "^32.0.1",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "nodemon": "^2.0.7",
+    "typescript": "^4.2.4"
   },
   "engines": {
     "node": ">=12.13.0"
