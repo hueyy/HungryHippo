@@ -11,23 +11,23 @@ const PORT = process.env.PORT || 3000
 app.use(helmet())
 app.use(morgan(`combined`))
 
-app.use((req, res, next) => {
-  if (res.get(`Content-Type`) !== `application/json`) {
-    const { type } = req.query
+app.use((request, response, next) => {
+  if (response.get(`Content-Type`) !== `application/json`) {
+    const { type } = request.query
     if (type === Digestor.OutputTypes.ATOM) {
-      res.header(`Content-Type`, `application/atom+xml`)
+      response.header(`Content-Type`, `application/atom+xml`)
     } else if (type === Digestor.OutputTypes.JSON) {
-      res.header(`Content-Type`, `application/json`)
+      response.header(`Content-Type`, `application/json`)
     } else { // type === Digestor.OutputTypes.RSS
-      res.header(`Content-Type`, `application/rss+xml`)
+      response.header(`Content-Type`, `application/rss+xml`)
     }
   }
 
-  res.header({ 'Cache-Control': `public, max-age=${60 * 10}` }) // standard cache of 10 minutes
+  response.header({ 'Cache-Control': `public, max-age=${60 * 10}` }) // standard cache of 10 minutes
   next()
 })
 
-app.get(`/`, Routes.Home)
+app.get(`/`, Routes.Home(app._router.stack))
 app.get(`/twitter/:handle`, Routes.Twitter)
 app.get(`/instagram/:handle`, Routes.Instagram)
 app.get(`/facebook/:username`, Routes.Facebook)
@@ -37,5 +37,7 @@ app.get(`/individual-site/:site/:subsite?`, Routes.IndividualSite)
 
 app.listen(
   PORT,
-  () => console.log(`HungryHippo listening on port ${PORT}!`)
+  () => {
+    console.log(`HungryHippo listening on port ${PORT}!`)
+  }
 )

@@ -3,7 +3,6 @@ import Home from './Home'
 import IndividualSite from './IndividualSite'
 import Instagram from './Instagram'
 import Linkedin from './Linkedin'
-import Routes from './Routes'
 import Twitter from './Twitter'
 
 export default {
@@ -13,5 +12,4 @@ export default {
   Instagram,
   Linkedin,
   Twitter,
-  Routes,
 }

@@ -8,16 +8,16 @@ const amicaMuncher = async () => {
 
   const $ = cheerio.load(data)
 
-  const items = $(`#comp-j7po4ro3 > ul > li`).map((_, el) => ({
-    title: $(el).text().trim(),
-    link: $(`a`, el).attr(`href`),
+  const items = $(`#comp-j7po4ro3 > ul > li`).map((_, element) => ({
+    link: $(`a`, element).attr(`href`),
+    title: $(element).text().trim(),
   })).get()
 
   return {
-    title: $(`title`).first().text().trim(),
     description: $(`meta[property='og:description']`).text().trim(),
     items,
     link: BASE_URL,
+    title: $(`title`).first().text().trim(),
   }
 }
 

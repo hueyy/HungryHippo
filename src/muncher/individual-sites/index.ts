@@ -1,3 +1,4 @@
+import FourNewSquare from './4newsquare.com'
 import AllenGledhill from './allenandgledhill.com'
 import Amica from './amicalaw.com'
 import BakerMcKenzie from './bakermckenzie.com'
@@ -22,26 +23,27 @@ import Lexxion from './lexxion.eu'
 import SJLS from './law1.nus.edu.sg'
 
 export default {
-  'telegraph.co.uk': Telegraph,
-  'ucl.ac.uk': UCL,
-  'thetab.com': TheTab,
-  'rollonfriday.com': RollOnFriday,
-  'iamgoing.co.uk': IAmGoing,
-  'theedgesingapore.com': EdgeSingapore,
-  'singaporelawblog.sg': SingaporeLawBlog,
-  'lawsociety.org.uk': LawSocietyUK,
-  'law.nus.edu.sg': NUSLaw,
-  'scca.org.sg': SCCA,
-  'thecrimson.com': TheCrimson,
-  'amicalaw.com': Amica,
-  'allenandgledhill.com': AllenGledhill,
-  'thepractice.law.harvard.edu': HarvardThePractice,
-  'cutle.fish': Cutlefish,
-  'sal.org.sg': SAL,
-  'drewnapier.com': DrewNapier,
-  'bakermckenzie.com': BakerMcKenzie,
+  '4newsquare.com': FourNewSquare,
   'academypublishing.org.sg': AcademyPublishing,
+  'allenandgledhill.com': AllenGledhill,
+  'amicalaw.com': Amica,
+  'bakermckenzie.com': BakerMcKenzie,
+  'cutle.fish': Cutlefish,
+  'drewnapier.com': DrewNapier,
   'ejlt.org': EJLT,
-  'lexxion.eu': Lexxion,
+  'iamgoing.co.uk': IAmGoing,
+  'law.nus.edu.sg': NUSLaw,
   'law1.nus.edu.sg': SJLS,
+  'lawsociety.org.uk': LawSocietyUK,
+  'lexxion.eu': Lexxion,
+  'rollonfriday.com': RollOnFriday,
+  'sal.org.sg': SAL,
+  'scca.org.sg': SCCA,
+  'singaporelawblog.sg': SingaporeLawBlog,
+  'telegraph.co.uk': Telegraph,
+  'thecrimson.com': TheCrimson,
+  'theedgesingapore.com': EdgeSingapore,
+  'thepractice.law.harvard.edu': HarvardThePractice,
+  'thetab.com': TheTab,
+  'ucl.ac.uk': UCL,
 }
