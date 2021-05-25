@@ -9,9 +9,9 @@ const newSquareMuncher = async () => {
   const $ = cheerio.load(data)
 
   const items = $(`.news-grid__box > .box__inner > a`).map((_, element) => ({
-    content: $(`p`, element).text().trim(),
-    date: new Date($(`.teaser__date`).text().trim()),
-    image: $(`.teaser__image`, element),
+    content: $(element).html(),
+    date: new Date($(`.teaser__date`, element).text().trim()),
+    image: [...$(`.teaser__image`, element).attr(`style`).matchAll(/background-image: url\('(.*)'\);$/gi)][0][1],
     link: $(element).attr(`href`),
     title: $(`h2`, element).text().trim()
   })).get()

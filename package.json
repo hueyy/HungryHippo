@@ -27,11 +27,11 @@
     ]
   },
   "dependencies": {
-    "@hueyy/feed": "^4.1.0",
     "axios": "git+https://github.com/hueyy/axios.git",
     "cheerio": "^1.0.0-rc.9",
     "dayjs": "^1.10.4",
     "express": "^4.17.1",
+    "feed": "^4.2.2",
     "form-data": "^4.0.0",
     "helmet": "^4.6.0",
     "morgan": "^1.10.0",

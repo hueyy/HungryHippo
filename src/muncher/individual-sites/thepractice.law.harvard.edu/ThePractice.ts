@@ -8,17 +8,17 @@ const edgeMuncher = async () => {
 
   const $ = cheerio.load(data)
 
-  const items = $(`.articles-index > ul > li`).map((_, el) => ({
-    title: $(`p:nth-of-type(1)`, el).text().trim(),
-    content: $(`p:nth-of-type(2)`, el).text().trim(),
-    link: $(`a`, el).attr(`href`)
+  const items = $(`.articles-index > ul > li`).map((_, element) => ({
+    content: $(`p:nth-of-type(2)`, element).text().trim(),
+    link: $(`a`, element).attr(`href`),
+    title: $(`p:nth-of-type(1)`, element).text().trim()
   })).get()
 
   return {
-    title: $(`title`).first().text().trim(),
     description: $(`meta[property='og:description']`).text().trim(),
     items,
     link: BASE_URL,
+    title: $(`title`).first().text().trim(),
   }
 }
 

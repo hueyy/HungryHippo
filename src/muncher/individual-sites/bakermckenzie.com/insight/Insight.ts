@@ -8,7 +8,7 @@ const site = `${BASE_URL}/en/insight`
 const insightMuncher = async (_, {
   services = ``,
   locations = ``,
-} = { services: ``, locations: `` }) => {
+} = { locations: ``, services: `` }) => {
   const request = {
     AsiaPacificFilters: {
       Filter: locations.split(`,`).map(l => ({
@@ -45,18 +45,18 @@ const insightMuncher = async (_, {
     NavigateLink: { Url },
     DisplayDate
   }) => ({
-    title: Title,
     content: Summary,
+    date: new Date (DisplayDate),
     image: BackgroundImageUrl,
     link: Url,
-    date: new Date (DisplayDate)
+    title: Title
   }))
 
   return {
-    title: `Insight | Baker McKenzie`,
     description: `Explore our insight by industries, practices and locations`,
     items,
     link: site,
+    title: `Insight | Baker McKenzie`,
   }
 }
 

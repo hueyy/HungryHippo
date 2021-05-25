@@ -21,6 +21,9 @@ import AcademyPublishing from './academypublishing.org.sg'
 import EJLT from './ejlt.org'
 import Lexxion from './lexxion.eu'
 import SJLS from './law1.nus.edu.sg'
+import Greenbag from './greenbag.org'
+import PageWhite from './pagewhite.com'
+import UCCIE from './ucc.ie'
 
 export default {
   '4newsquare.com': FourNewSquare,
@@ -31,11 +34,13 @@ export default {
   'cutle.fish': Cutlefish,
   'drewnapier.com': DrewNapier,
   'ejlt.org': EJLT,
+  'greenbag.org': Greenbag,
   'iamgoing.co.uk': IAmGoing,
   'law.nus.edu.sg': NUSLaw,
   'law1.nus.edu.sg': SJLS,
   'lawsociety.org.uk': LawSocietyUK,
   'lexxion.eu': Lexxion,
+  'pagewhite.com': PageWhite,
   'rollonfriday.com': RollOnFriday,
   'sal.org.sg': SAL,
   'scca.org.sg': SCCA,
@@ -45,5 +50,6 @@ export default {
   'theedgesingapore.com': EdgeSingapore,
   'thepractice.law.harvard.edu': HarvardThePractice,
   'thetab.com': TheTab,
+  'ucc.ie': UCCIE,
   'ucl.ac.uk': UCL,
 }

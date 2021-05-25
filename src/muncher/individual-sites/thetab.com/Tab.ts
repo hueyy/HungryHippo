@@ -8,34 +8,34 @@ const TheTabMuncher = async (
 
   const $ = cheerio.load(resp.data)
 
-  const firstStoryEl = $(`.first_article `)
+  const firstStoryElement = $(`.first_article `)
   const items = [
     {
-      title: $(`.story__title`, firstStoryEl).text().trim(),
-      link: $(`a`, firstStoryEl).attr(`href`),
-      image: $(`> a > img`, firstStoryEl).attr(`data-src`),
-      author: $(`.story__author > .author-list > a`, firstStoryEl).map((_, el) => ({
-        link: $(el).attr(`href`),
-        name: $(el).text().trim()
-      })).get()
+      author: $(`.story__author > .author-list > a`, firstStoryElement).map((_, element) => ({
+        link: $(element).attr(`href`),
+        name: $(element).text().trim()
+      })).get(),
+      image: $(`> a > img`, firstStoryElement).attr(`data-src`),
+      link: $(`a`, firstStoryElement).attr(`href`),
+      title: $(`.story__title`, firstStoryElement).text().trim()
     },
-    ...($(`#main-content .feed .story-container > .article__single`).map((_, el) => ({
-      title: $(`> h2`, el).text().trim(),
-      link: $(`> a`, el).attr(`href`),
-      content: $(`> .story__excerpt`, el).text().trim(),
-      image: $(`> a > img`, el).attr(`data-src`),
-      author: $(`.story__author > .author-list > a`, el).map((_, el) => ({
-        link: $(el).attr(`href`),
-        name: $(el).text().trim()
-      })).get()
+    ...($(`#main-content .feed .story-container > .article__single`).map((_, element) => ({
+      author: $(`.story__author > .author-list > a`, element).map((_, element) => ({
+        link: $(element).attr(`href`),
+        name: $(element).text().trim()
+      })).get(),
+      content: $(`> .story__excerpt`, element).text().trim(),
+      image: $(`> a > img`, element).attr(`data-src`),
+      link: $(`> a`, element).attr(`href`),
+      title: $(`> h2`, element).text().trim()
     })).get())
   ]
 
   return {
-    title: $(`title`).first().text().trim(),
     description: $(`meta[property='og:description']`).text().trim(),
     items,
     link: url,
+    title: $(`title`).first().text().trim(),
   }
 }
 

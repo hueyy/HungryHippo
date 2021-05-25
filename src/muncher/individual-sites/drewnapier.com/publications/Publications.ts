@@ -11,17 +11,17 @@ const lawRefromMuncher = async (_, {
 
   const $ = cheerio.load(data)
 
-  const items = $(`ul.resource-list > li.resource-item`).map((_, el) => ({
-    title: $(`h3`, el).text().trim(),
-    link: `${BASE_URL}/${$(`h3 > a`, el).attr(`href`)}`,
-    content: $(el).html()
+  const items = $(`ul.resource-list > li.resource-item`).map((_, element) => ({
+    content: $(element).html(),
+    link: `${BASE_URL}/${$(`h3 > a`, element).attr(`href`)}`,
+    title: $(`h3`, element).text().trim()
   })).get()
 
   return {
-    title: $(`title`).first().text().trim(),
     description: $(`meta[property='og:description']`).text().trim(),
     items,
     link: BASE_URL,
+    title: $(`title`).first().text().trim(),
   }
 }
 
