@@ -24,6 +24,8 @@ import SJLS from './law1.nus.edu.sg'
 import Greenbag from './greenbag.org'
 import PageWhite from './pagewhite.com'
 import UCCIE from './ucc.ie'
+import CULS from './culs.org.uk'
+import HKULaw from './law.hku.hk'
 
 export default {
   '4newsquare.com': FourNewSquare,
@@ -31,11 +33,13 @@ export default {
   'allenandgledhill.com': AllenGledhill,
   'amicalaw.com': Amica,
   'bakermckenzie.com': BakerMcKenzie,
+  'culs.org.uk': CULS,
   'cutle.fish': Cutlefish,
   'drewnapier.com': DrewNapier,
   'ejlt.org': EJLT,
   'greenbag.org': Greenbag,
   'iamgoing.co.uk': IAmGoing,
+  'law.hku.hk': HKULaw,
   'law.nus.edu.sg': NUSLaw,
   'law1.nus.edu.sg': SJLS,
   'lawsociety.org.uk': LawSocietyUK,
