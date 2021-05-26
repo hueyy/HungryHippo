@@ -26,6 +26,8 @@ import PageWhite from './pagewhite.com'
 import UCCIE from './ucc.ie'
 import CULS from './culs.org.uk'
 import HKULaw from './law.hku.hk'
+import OxfordLaw from './law.ox.ac.uk'
+import EnyoLaw from './enyolaw.com'
 
 export default {
   '4newsquare.com': FourNewSquare,
@@ -37,10 +39,12 @@ export default {
   'cutle.fish': Cutlefish,
   'drewnapier.com': DrewNapier,
   'ejlt.org': EJLT,
+  'enyolaw.com': EnyoLaw,
   'greenbag.org': Greenbag,
   'iamgoing.co.uk': IAmGoing,
   'law.hku.hk': HKULaw,
   'law.nus.edu.sg': NUSLaw,
+  'law.ox.ac.uk': OxfordLaw,
   'law1.nus.edu.sg': SJLS,
   'lawsociety.org.uk': LawSocietyUK,
   'lexxion.eu': Lexxion,
