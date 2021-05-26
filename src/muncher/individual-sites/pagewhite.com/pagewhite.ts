@@ -11,7 +11,7 @@ const pageWhiteMuncher = async () => {
 
   const items = $(`.output-wrapper .inner .item-wrapper > .item.item-news`).map((_, element) => ({
     content: $(`p`, element).text().trim(),
-    date: $(`.date`, element).text().trim(),
+    date: new Date($(`.date`, element).text().trim()),
     image: $(`img`, element).attr(`src`),
     link: $(`a.title`, element).attr(`href`),
     title: $(`a.title`, element).text().trim()
