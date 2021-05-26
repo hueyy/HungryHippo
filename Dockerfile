@@ -1,7 +1,9 @@
 FROM node:lts-alpine
 
 WORKDIR /app
-RUN apk add git
+RUN apk add git openssh && \
+  mkdir -p ~/.ssh && \
+  ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 COPY package*.json ./
 
 RUN npm ci

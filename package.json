@@ -27,7 +27,7 @@
     ]
   },
   "dependencies": {
-    "axios": "git+https://github.com/hueyy/axios.git",
+    "axios": "github:hueyy/axios",
     "cheerio": "^1.0.0-rc.9",
     "dayjs": "^1.10.4",
     "express": "^4.17.1",
