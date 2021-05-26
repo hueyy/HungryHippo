@@ -27,7 +27,7 @@
     ]
   },
   "dependencies": {
-    "axios": "git+https://github.com/hueyy/axios.git",
+    "axios": "github:hueyy/axios",
     "cheerio": "^1.0.0-rc.9",
     "dayjs": "^1.10.4",
     "express": "^4.17.1",
@@ -62,8 +62,5 @@
     "lint-staged": "^11.0.0",
     "nodemon": "^2.0.7",
     "typescript": "^4.2.4"
-  },
-  "engines": {
-    "node": ">=14.17.0"
   }
 }
