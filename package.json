@@ -50,7 +50,7 @@
     "@typescript-eslint/eslint-plugin": "^4.24.0",
     "eslint": "7.27.0",
     "eslint-plugin-disable": "^2.0.1",
-    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-import": "2.23.4",
     "eslint-plugin-json-format": "^2.0.1",
     "eslint-plugin-no-secrets": "^0.8.9",
     "eslint-plugin-node": "11.1.0",
