@@ -1,9 +1,15 @@
-import { Feed } from 'feed'
+import { Feed, FeedOptions, Item } from 'feed'
 
 const OutputTypes = {
   ATOM: `atom`,
   JSON: `json`,
   RSS: `rss`
+}
+
+export interface AssembleFeedOptions extends Omit<FeedOptions, `id` | `copyright`> {
+  items: Item[],
+  id?: string,
+  copyright?: string,
 }
 
 const assembleFeed = ({
@@ -12,7 +18,7 @@ const assembleFeed = ({
   link,
   image,
   items = [],
-}, outputType = OutputTypes.RSS) => {
+}: AssembleFeedOptions, outputType = OutputTypes.RSS) => {
   const newFeed = new Feed({
     copyright: ``,
     description,

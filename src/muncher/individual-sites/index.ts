@@ -28,6 +28,7 @@ import CULS from './culs.org.uk'
 import HKULaw from './law.hku.hk'
 import OxfordLaw from './law.ox.ac.uk'
 import EnyoLaw from './enyolaw.com'
+import PDPCGovSG from './pdpc.gov.sg'
 
 export default {
   '4newsquare.com': FourNewSquare,
@@ -49,6 +50,7 @@ export default {
   'lawsociety.org.uk': LawSocietyUK,
   'lexxion.eu': Lexxion,
   'pagewhite.com': PageWhite,
+  'pdpc.gov.sg': PDPCGovSG,
   'rollonfriday.com': RollOnFriday,
   'sal.org.sg': SAL,
   'scca.org.sg': SCCA,
