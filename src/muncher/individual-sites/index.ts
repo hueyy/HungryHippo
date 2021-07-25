@@ -1,4 +1,5 @@
 import FourNewSquare from './4newsquare.com'
+import Saputo from './saputo.com'
 import AllenGledhill from './allenandgledhill.com'
 import Amica from './amicalaw.com'
 import BakerMcKenzie from './bakermckenzie.com'
@@ -32,6 +33,7 @@ import PDPCGovSG from './pdpc.gov.sg'
 
 export default {
   '4newsquare.com': FourNewSquare,
+  'saputo.com': Saputo,
   'academypublishing.org.sg': AcademyPublishing,
   'allenandgledhill.com': AllenGledhill,
   'amicalaw.com': Amica,
