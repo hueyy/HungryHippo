@@ -10,11 +10,12 @@ const newSaputoMuncher = async () => {
   console.warn($.html(`.result > .inner `))
   const items = $(`.result > .inner `).map((_, element) => ({
     date: new Date($(`.sub-head`,element).text().trim()),
-    description: ``,
+    description: $(`p`, element).text().trim(),
     image: $(`img`, element).attr(`src`),
     link: $(`a`, element).attr(`href`),
-    title: $(`p`, element).text().trim(),
+    title: $(`a`, element).text().trim(),
   })).get()
+  console.warn(items)
 
   return {
     description: $(`meta[property='og:description']`).text().trim(),
