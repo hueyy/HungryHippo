@@ -1,4 +1,4 @@
-FROM node:14.17.0-alpine
+FROM node:16.6.0-alpine
 
 WORKDIR /app
 RUN apk add git openssh && \
