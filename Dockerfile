@@ -1,4 +1,4 @@
-FROM node:14.17.0-alpine
+FROM node:16.1.0-alpine
 
 WORKDIR /app
 RUN apk add git openssh && \
@@ -6,7 +6,7 @@ RUN apk add git openssh && \
   ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 COPY package*.json ./
 
-RUN npm i -f
+RUN npm i
 COPY . .
 RUN npm run build && chown node:node /app
 
