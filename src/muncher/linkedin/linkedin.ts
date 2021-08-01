@@ -1,11 +1,12 @@
 import axios from 'axios'
 import cheerio from 'cheerio'
+import type { IndividualSiteMuncher } from '../individual-sites/types'
 
 const BASE_URL = `https://www.linkedin.com`
 
 const linkedinClient = axios.create({ baseURL: BASE_URL })
 
-const linkedinMuncher = async path => {
+const linkedinMuncher: IndividualSiteMuncher = async path => {
   const resp = await linkedinClient.get(
     path,
     {
@@ -23,8 +24,9 @@ const linkedinMuncher = async path => {
   return {
     description: jobTitle,
     image,
+    items: [],
+    link: BASE_URL + path,
     title: name,
-    link: BASE_URL + path
   }
 }
 

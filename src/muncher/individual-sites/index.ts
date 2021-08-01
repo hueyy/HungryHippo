@@ -30,16 +30,17 @@ import HKULaw from './law.hku.hk'
 import OxfordLaw from './law.ox.ac.uk'
 import EnyoLaw from './enyolaw.com'
 import PDPCGovSG from './pdpc.gov.sg'
+import DataGovSG from './data.gov.sg'
 
 export default {
   '4newsquare.com': FourNewSquare,
-  'saputo.com': Saputo,
   'academypublishing.org.sg': AcademyPublishing,
   'allenandgledhill.com': AllenGledhill,
   'amicalaw.com': Amica,
   'bakermckenzie.com': BakerMcKenzie,
   'culs.org.uk': CULS,
   'cutle.fish': Cutlefish,
+  'data.gov.sg': DataGovSG,
   'drewnapier.com': DrewNapier,
   'ejlt.org': EJLT,
   'enyolaw.com': EnyoLaw,
@@ -55,6 +56,7 @@ export default {
   'pdpc.gov.sg': PDPCGovSG,
   'rollonfriday.com': RollOnFriday,
   'sal.org.sg': SAL,
+  'saputo.com': Saputo,
   'scca.org.sg': SCCA,
   'singaporelawblog.sg': SingaporeLawBlog,
   'telegraph.co.uk': Telegraph,
