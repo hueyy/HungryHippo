@@ -39,12 +39,12 @@
     "qs": "^6.10.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.14.8",
-    "@babel/eslint-plugin": "^7.14.5",
-    "@babel/node": "^7.14.7",
-    "@babel/preset-env": "^7.14.8",
-    "@babel/preset-typescript": "^7.14.5",
+    "@babel/cli": "7.14.5",
+    "@babel/core": "7.14.6",
+    "@babel/eslint-plugin": "7.14.5",
+    "@babel/node": "7.14.5",
+    "@babel/preset-env": "7.14.5",
+    "@babel/preset-typescript": "7.14.5",
     "@types/express": "^4.17.13",
     "@types/node": "^16.4.9",
     "@typescript-eslint/eslint-plugin": "4.28.5",
