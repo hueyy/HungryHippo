@@ -18,7 +18,7 @@ const assembleFeed = ({
   link,
   image,
   items = [],
-}: AssembleFeedOptions, outputType = OutputTypes.RSS) => {
+}: AssembleFeedOptions, outputType = OutputTypes.RSS): string => {
   const newFeed = new Feed({
     copyright: ``,
     description,

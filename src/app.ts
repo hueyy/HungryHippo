@@ -4,6 +4,11 @@ import morgan from 'morgan'
 import Digestor from './digestor'
 import Routes from './routes'
 
+if(process.env.NODE_ENV !== `production`) {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires, unicorn/prefer-module
+  require(`dotenv`).config()
+}
+
 const app = express()
 
 const PORT = process.env.PORT || 3000
@@ -32,6 +37,7 @@ app.get(`/twitter/:handle`, Routes.Twitter)
 app.get(`/instagram/:handle`, Routes.Instagram)
 app.get(`/facebook/:username`, Routes.Facebook)
 app.get(`/linkedin/:path/:subpath`, Routes.Linkedin)
+app.get(`/github`, Routes.GitHub)
 app.get(`/individual-site`, Routes.IndividualSite)
 app.get(`/individual-site/:site/:subsite?`, Routes.IndividualSite)
 
