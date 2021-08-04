@@ -20,6 +20,7 @@ HungryHippo generates RSS/ATOM/JSON feeds from regularly-updating public sites.
 | Singapore Law Blog |                    [singaporelawblog.sg](https://singaporelawblog.sg)                    | [/individual-site/singaporelawblog.sg](https://hungryhippo.huey.xyz/individual-site/singaporelawblog.sg)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | The Edge (SG)      |                   [theedgesingapore.com](https://theedgesingapore.com)                   | [/individual-site/theedgesingapore.com](https://hungryhippo.huey.xyz/individual-site/theedgesingapore.com)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | PDPC (SG)          |                          [pdpc.gov.sg](https://www.pdpc.gov.sg)                          | [/individual-site/pdpc.gov.sg/undertaking](https://hungryhippo.huey.xyz/individual-site/pdpc.gov.sg/undertaking)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| GitHub Code Search |                      [github.com/search](https://github.com/search)                      | [/github?q="xkcd.com"](https://hungryhippo.huey.xyz/github?q="xkcd.com")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
 Pop the HungryHippo link into a RSS reader like [Feedly](https://feedly.com), [BazQux](https://bazqux.com/), or [RSSOwl](http://www.rssowl.org). Or you can [use IE](https://www.wikihow.com/Subscribe-to-and-Read-RSS-Feeds-with-Internet-Explorer).
 
@@ -40,6 +41,10 @@ Without docker:
   npm ci
   npm run start:dev
 ```
+
+### GitHub
+
+Optionally, provide the `GITHUB_OAUTH_TOKEN` environment variable to enable the GitHub search RSS feeds.
 
 ## Development
 

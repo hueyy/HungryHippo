@@ -1,8 +1,8 @@
-import type { Request, Response } from 'express'
+import type { Request, RequestHandler, Response } from 'express'
 import Digestor from '../digestor'
 import Muncher from '../muncher'
 
-const individualSiteFeed = async (request: Request, response: Response) => {
+const individualSiteFeed: RequestHandler = async (request: Request, response: Response) => {
   const { site, subsite } = request.params
   if (!site || site.length === 0) {
     return response.status(400).json({

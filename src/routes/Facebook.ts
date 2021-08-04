@@ -1,16 +1,17 @@
+import type { RequestHandler } from 'express'
 import Digestor from '../digestor'
 import Muncher from '../muncher'
 
 const { Facebook: FacebookMuncher } = Muncher
 
-const facebookFeed = async (req, res) => {
-  const { username } = req.params
+const facebookFeed: RequestHandler = async (request, response) => {
+  const { username } = request.params
   if (!username || username.length === 0) {
-    return res.status(400).send(`username not specified`)
+    return response.status(400).send(`username not specified`)
   }
-  const { type } = req.query
+  const { type }: { type?: string } = request.query
   const feed = Digestor.assembleFeed(await FacebookMuncher(username), type)
-  return res.status(200).send(feed)
+  return response.status(200).send(feed)
 }
 
 export default facebookFeed

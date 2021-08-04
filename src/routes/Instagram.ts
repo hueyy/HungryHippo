@@ -1,16 +1,17 @@
+import type { RequestHandler } from 'express'
 import Digestor from '../digestor'
 import Muncher from '../muncher'
 
 const { Instagram: InstagramMuncher } = Muncher
 
-const instagramFeed = async (req, res) => {
-  const { handle } = req.params
+const instagramFeed: RequestHandler = async (request, response) => {
+  const { handle } = request.params
   if (!handle || handle.length === 0) {
-    return res.status(400).send(`handle not specified`)
+    return response.status(400).send(`handle not specified`)
   }
-  const { type } = req.query
+  const { type }: { type?: string } = request.query
   const feed = Digestor.assembleFeed(await InstagramMuncher(handle), type)
-  return res.status(200).send(feed)
+  return response.status(200).send(feed)
 }
 
 export default instagramFeed

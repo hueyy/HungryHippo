@@ -1,20 +1,21 @@
+import type { RequestHandler } from 'express'
 import Digestor from '../digestor'
 import Muncher from '../muncher'
 
 const { Linkedin: LinkedinMuncher } = Muncher
 
-const linkedinFeed = async (req, res) => {
-  const { path, subpath } = req.params
+const linkedinFeed: RequestHandler = async (request, response) => {
+  const { path, subpath } = request.params
   if (!path || path.length === 0) {
-    return res.status(400).send(`path not specified`)
+    return response.status(400).send(`path not specified`)
   }
   if (!subpath || subpath.length === 0) {
-    return res.status(400).send(`subpath not specified`)
+    return response.status(400).send(`subpath not specified`)
   }
   const fullPath = `/${path}/${subpath}`
-  const { type } = req.query
+  const { type }: { type?: string } = request.query
   const feed = Digestor.assembleFeed(await LinkedinMuncher(fullPath), type)
-  return res.status(200).send(feed)
+  return response.status(200).send(feed)
 }
 
 export default linkedinFeed
