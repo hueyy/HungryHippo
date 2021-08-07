@@ -1,6 +1,7 @@
 import qs from 'qs'
 import axios from 'axios'
 import type { AssembleFeedOptions } from '../../digestor'
+import { hash } from '../../utils/Helper'
 
 type Parameters_ = {
   q: string,
@@ -46,14 +47,16 @@ const githubMuncher: GitHubMuncher = async ({
       }
     } = item
 
-    return {
-      content: `
+    const content = `
       <div>
         <p>Match for ${q}</p>
         <p><a href="${fileURL}">${filePath}</a></p>
         <p><a href="${repoURL}">${repoName}</a>: ${description}</p>
-      </div>`,
-      date: new Date(),
+      </div>`
+
+    return {
+      content,
+      id: hash(content),
       link: fileURL,
       title: `${repoName} ${filePath}`,
     }

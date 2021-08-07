@@ -1,9 +1,10 @@
 import axios from 'axios'
 import cheerio from 'cheerio'
+import type { IndividualSiteMuncher } from '../../types'
 
 const BASE_URL = `https://www.4newsquare.com`
 
-const newSquarePublications = async () => {
+const newSquarePublications: IndividualSiteMuncher = async () => {
   const { data } = await axios.get(`${BASE_URL}/publications`)
 
   const $ = cheerio.load(data)
@@ -12,7 +13,7 @@ const newSquarePublications = async () => {
     content: $(`p`, element).text().trim(),
     date: new Date($(`.date`).text().slice(1).trim()),
     link: $(element).attr(`href`),
-    title: `${$(`.title`, element).text().trim()} - ${$(`.heading`, element).text().trim()}`
+    title: $(`.title`, element).text().trim() + ` - ` + $(`.heading`, element).text().trim()
   })).get()
 
   return {

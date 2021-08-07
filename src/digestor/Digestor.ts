@@ -6,8 +6,11 @@ const OutputTypes = {
   RSS: `rss`
 }
 
+interface HungryHippoItem extends Omit<Item, `date`> {
+  date?: Date,
+}
 export interface AssembleFeedOptions extends Omit<FeedOptions, `id` | `copyright`> {
-  items: Item[],
+  items: HungryHippoItem[],
   id?: string,
   copyright?: string,
 }
@@ -29,7 +32,7 @@ const assembleFeed = ({
     title
   })
   if (items.length > 0) {
-    for (const item of items)  newFeed.addItem(item)
+    for (const item of items)  newFeed.addItem(item as Item)
   }
   switch (outputType) {
     case OutputTypes.RSS: {

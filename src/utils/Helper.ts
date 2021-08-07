@@ -1,7 +1,5 @@
-const cleanup = (string) => string.replace(/[^\d !"#$%&()-_`a-z{|}~]*/g, ``)
+import crypto from 'crypto'
 
-const Helper = {
-  cleanup
-}
+export const cleanup = (string: string): string => string.replace(/[^\d !"#$%&()-_`a-z{|}~]*/g, ``)
 
-export default Helper
+export const hash = (inputString: string): string => crypto.createHash(`sha256`).update(inputString).digest(`hex`)
