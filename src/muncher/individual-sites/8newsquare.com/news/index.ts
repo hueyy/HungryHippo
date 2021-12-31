@@ -1,0 +1,1 @@
+export { default } from './8newsquare-news'

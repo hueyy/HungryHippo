@@ -1,39 +1,44 @@
-import FourNewSquare from './4newsquare.com'
-import Saputo from './saputo.com'
+import AcademyPublishing from './academypublishing.org.sg'
 import AllenGledhill from './allenandgledhill.com'
 import Amica from './amicalaw.com'
 import BakerMcKenzie from './bakermckenzie.com'
+import CULS from './culs.org.uk'
 import Cutlefish from './cutle.fish'
+import DataGovSG from './data.gov.sg'
 import DrewNapier from './drewnapier.com'
+import Dyoung from './dyoung.com'
+import EdgeSingapore from './theedgesingapore.com'
+import EightNewSquare from './8newsquare.com'
+import EJLT from './ejlt.org'
+import EnyoLaw from './enyolaw.com'
+import FourNewSquare from './4newsquare.com'
+import Greenbag from './greenbag.org'
+import HarvardThePractice from './thepractice.law.harvard.edu'
+import HKULaw from './law.hku.hk'
 import IAmGoing from './iamgoing.co.uk'
-import NUSLaw from './law.nus.edu.sg'
 import LawSocietyUK from './lawsociety.org.uk'
+import Lexxion from './lexxion.eu'
+import NianticLabs from './nianticlabs.com'
+import NUSLaw from './law.nus.edu.sg'
+import OxfordLaw from './law.ox.ac.uk'
+import PageWhite from './pagewhite.com'
+import PDPCGovSG from './pdpc.gov.sg'
+import PotterClarkson from './potterclarkson.com'
 import RollOnFriday from './rollonfriday.com'
 import SAL from './sal.org.sg'
+import Saputo from './saputo.com'
 import SCCA from './scca.org.sg'
 import SingaporeLawBlog from './singaporelawblog.sg'
+import SJLS from './law1.nus.edu.sg'
 import Telegraph from './telegraph.co.uk'
 import TheCrimson from './thecrimson.com'
-import EdgeSingapore from './theedgesingapore.com'
-import HarvardThePractice from './thepractice.law.harvard.edu'
 import TheTab from './thetab.com'
-import UCL from './ucl.ac.uk'
-import AcademyPublishing from './academypublishing.org.sg'
-import EJLT from './ejlt.org'
-import Lexxion from './lexxion.eu'
-import SJLS from './law1.nus.edu.sg'
-import Greenbag from './greenbag.org'
-import PageWhite from './pagewhite.com'
 import UCCIE from './ucc.ie'
-import CULS from './culs.org.uk'
-import HKULaw from './law.hku.hk'
-import OxfordLaw from './law.ox.ac.uk'
-import EnyoLaw from './enyolaw.com'
-import PDPCGovSG from './pdpc.gov.sg'
-import DataGovSG from './data.gov.sg'
+import UCL from './ucl.ac.uk'
 
 export default {
   '4newsquare.com': FourNewSquare,
+  '8newsquare.com': EightNewSquare,
   'academypublishing.org.sg': AcademyPublishing,
   'allenandgledhill.com': AllenGledhill,
   'amicalaw.com': Amica,
@@ -42,6 +47,7 @@ export default {
   'cutle.fish': Cutlefish,
   'data.gov.sg': DataGovSG,
   'drewnapier.com': DrewNapier,
+  'dyoung.com': Dyoung,
   'ejlt.org': EJLT,
   'enyolaw.com': EnyoLaw,
   'greenbag.org': Greenbag,
@@ -52,8 +58,10 @@ export default {
   'law1.nus.edu.sg': SJLS,
   'lawsociety.org.uk': LawSocietyUK,
   'lexxion.eu': Lexxion,
+  'nianticlabs.com': NianticLabs,
   'pagewhite.com': PageWhite,
   'pdpc.gov.sg': PDPCGovSG,
+  'potterclarkson.com': PotterClarkson,
   'rollonfriday.com': RollOnFriday,
   'sal.org.sg': SAL,
   'saputo.com': Saputo,
