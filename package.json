@@ -35,7 +35,7 @@
     "form-data": "^4.0.0",
     "helmet": "^4.6.0",
     "morgan": "^1.10.0",
-    "playwright-chromium": "^1.17.1",
+    "playwright-chromium": "^1.19.2",
     "qs": "^6.10.2"
   },
   "devDependencies": {
