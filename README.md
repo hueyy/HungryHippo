@@ -1,5 +1,7 @@
 # HungryHippo
 
+![Docker Image Version (latest by date)](https://img.shields.io/docker/v/hueyy/hungryhippo?sort=date)
+
 <img src="https://live.staticflickr.com/3436/3225591269_5001acef98_b_d.jpg" width="300" />
 
 > To a hungry hippo, everything is a feed
