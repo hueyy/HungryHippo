@@ -15,17 +15,18 @@ const readKey = (key) => {
   return data[key]
 }
 
-const writeCache = (cache) => {
-  if(!fs.existsSync(CACHE_FILE)){
-    return fs.writeFileSync(CACHE_FILE, cache)
-  }
-}
+const writeCache = (cache) => fs.writeFileSync(
+  CACHE_FILE,
+  JSON.stringify(cache),
+  { encoding: `utf-8` }
+)
 
 const writeValue = (key, value?) => {
-  if(!fs.existsSync(CACHE_FILE)){
-    return writeCache(JSON.stringify({ [key]: value }))
-  }
   const data = readCache()
+  if(typeof value === `undefined`){
+    delete data[key]
+    return writeCache(data)
+  }
   return writeCache({
     ...data,
     [key]: value
@@ -33,9 +34,9 @@ const writeValue = (key, value?) => {
 }
 
 const fileStorage = buildStorage({
-  find: (key) => readKey(key),
-  remove: (key) => writeValue(key),
-  set: (key, value) => writeValue(key, value),
+  find (key) { return readKey(key) },
+  remove (key) { return writeValue(key) },
+  set (key, value) { return writeValue(key, value) }
 })
 
 export default fileStorage

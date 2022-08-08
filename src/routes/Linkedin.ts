@@ -7,10 +7,10 @@ const { Linkedin: LinkedinMuncher } = Muncher
 const linkedinFeed: RequestHandler = async (request, response) => {
   const { path, subpath } = request.params
   if (!path || path.length === 0) {
-    return response.status(400).send(`path not specified`)
+    return response.status(200).send(`path not specified`)
   }
   if (!subpath || subpath.length === 0) {
-    return response.status(400).send(`subpath not specified`)
+    return response.status(200).send(`subpath not specified`)
   }
   const fullPath = `/${path}/${subpath}`
   const { type }: { type?: string } = request.query

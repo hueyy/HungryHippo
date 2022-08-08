@@ -51,7 +51,7 @@ module.exports = {
       `warn`,
       `never`
     ],
-    "sort-keys": [`error`, `asc`, { "caseSensitive": true, "minKeys": 2, "natural": true }],
+    "sort-keys": [`warn`, `asc`, { "caseSensitive": true, "minKeys": 2, "natural": true }],
     "sort-keys-fix/sort-keys-fix": 2,
     "unicorn/filename-case": `off`,
     "unicorn/prefer-node-protocol": `off`

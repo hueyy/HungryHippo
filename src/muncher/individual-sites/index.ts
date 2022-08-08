@@ -10,6 +10,7 @@ import Dyoung from './dyoung.com'
 import EdgeSingapore from './theedgesingapore.com'
 import EightNewSquare from './8newsquare.com'
 import EJLT from './ejlt.org'
+import ElevenSouthSquare from './11southsquare'
 import EnyoLaw from './enyolaw.com'
 import FourNewSquare from './4newsquare.com'
 import Greenbag from './greenbag.org'
@@ -24,6 +25,7 @@ import OxfordLaw from './law.ox.ac.uk'
 import PageWhite from './pagewhite.com'
 import PDPCGovSG from './pdpc.gov.sg'
 import PotterClarkson from './potterclarkson.com'
+import PowellGilbert from './powellgilbert.com'
 import RollOnFriday from './rollonfriday.com'
 import SAL from './sal.org.sg'
 import Saputo from './saputo.com'
@@ -37,6 +39,7 @@ import UCCIE from './ucc.ie'
 import UCL from './ucl.ac.uk'
 
 export default {
+  '11southsquare.com': ElevenSouthSquare,
   '4newsquare.com': FourNewSquare,
   '8newsquare.com': EightNewSquare,
   'academypublishing.org.sg': AcademyPublishing,
@@ -62,6 +65,7 @@ export default {
   'pagewhite.com': PageWhite,
   'pdpc.gov.sg': PDPCGovSG,
   'potterclarkson.com': PotterClarkson,
+  'powellgilbert.com': PowellGilbert,
   'rollonfriday.com': RollOnFriday,
   'sal.org.sg': SAL,
   'saputo.com': Saputo,

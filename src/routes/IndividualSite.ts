@@ -5,7 +5,8 @@ import Muncher from '../muncher'
 const individualSiteFeed: RequestHandler = async (request: Request, response: Response) => {
   const { site, subsite } = request.params
   if (!site || site.length === 0) {
-    return response.status(400).json({
+    response.header(`Content-Type`, `application/json`)
+    return response.status(200).json({
       error: `site not specified`,
       sites: Object.keys(Muncher.IndividualSites)
     })
@@ -18,7 +19,8 @@ const individualSiteFeed: RequestHandler = async (request: Request, response: Re
   }
 
   if(!IndividualMuncher){
-    return response.status(400).json({
+    response.header(`Content-Type`, `application/json`)
+    return response.status(200).json({
       error: `Invalid site/subsite`
     })
   }
@@ -35,7 +37,8 @@ const individualSiteFeed: RequestHandler = async (request: Request, response: Re
     )
     return response.status(200).send(feed)
   } catch (error) {
-    return response.status(400).json({
+    response.header(`Content-Type`, `application/json`)
+    return response.status(200).json({
       error: error.message,
       subsites: Object.keys(Muncher.IndividualSites[site])
     })
