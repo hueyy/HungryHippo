@@ -1,3 +1,5 @@
 node_modules
 .env
 dist
+cache.json
+test.html

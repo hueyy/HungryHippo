@@ -1,11 +1,11 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
+import Request from '../Request'
+import * as cheerio from 'cheerio'
 import type { IndividualSiteMuncher } from '../types'
 
 const BASE_URL = `https://www.potterclarkson.com`
 
 const potterClarkson: IndividualSiteMuncher = async () => {
-  const { data } = await axios.get(`${BASE_URL}/insights`)
+  const { data } = await Request.get(`${BASE_URL}/insights`)
   const $ = cheerio.load(data)
   const items = $(`#main-content > section #results .card-group > article.card`).map((_, element) => ({
     content: $(`.card__link`, element).html(),

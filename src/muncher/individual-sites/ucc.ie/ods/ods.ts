@@ -1,5 +1,5 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
+import Request from '../../Request'
+import * as cheerio from 'cheerio'
 import Logger from '../../../../utils/Logger'
 
 const BASE_URL = `https://www.ucc.ie/academic/law/odg`
@@ -7,23 +7,22 @@ const HOME_URL = `${BASE_URL}/home.htm`
 
 const getLatestURL = async () => {
   try {
-    const { data } = await axios.get(HOME_URL)
+    const { data } = await Request.get(HOME_URL)
 
     const $ = cheerio.load(data)
 
-    return `${BASE_URL}/${
-      $(`a`)
+    const path = $(`a`)
         .map((_, element) => $(element).attr(`href`)).get()
         .filter(url => url.match(/admin\/\d{4}\.htm/i) !== null)
         .slice(-1)[0]
-    }`
+    return `${BASE_URL}/${path}`
   } catch (error) {
     Logger.error(error)
   }
 }
 
 const getContent = async ({ link, ...attributes }) => {
-  const { data } = await axios.get(link)
+  const { data } = await Request.get(link)
   const $ = cheerio.load(data)
   return {
     link,
@@ -34,16 +33,20 @@ const getContent = async ({ link, ...attributes }) => {
 
 const odsMuncher = async () => {
   const latestURL = await getLatestURL()
-  const { data } = await axios.get(latestURL)
+  const { data } = await Request.get(latestURL)
 
   const $ = cheerio.load(data)
 
   const items = await Promise.all(
-    $(`body > table td > table tr`).slice(1).map((_, element) => ({
-      date: new Date(`${$(`td`, element).eq(0).text().trim()} ${latestURL.slice(-8, -4)}`),
-      link: `${BASE_URL}/admin/${$(`a`, element).attr(`href`)}`,
-      title: $(`a`, element).text().trim()
-    })).get().reverse().map((item) => getContent(item))
+    $(`body > table td > table tr`).slice(1).map((_, element) => {
+      const rawDate = $(`td`, element).eq(0).text().trim()
+      const linkPath = $(`a`, element).attr(`href`)
+      return ({
+        date: new Date(`${rawDate} ${latestURL.slice(-8, -4)}`),
+        link: `${BASE_URL}/admin/${linkPath}`,
+        title: $(`a`, element).text().trim()
+      })
+    }).get().reverse().map((item) => getContent(item))
   )
 
   return {

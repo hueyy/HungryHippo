@@ -1,8 +1,8 @@
-import axios from 'axios'
+import Request from '../Request'
 import type { IndividualSiteMuncher } from '../types'
 
 const PatentMuncher: IndividualSiteMuncher = async () => {
-  const { data } = await axios.get(`https://api.data.gov.sg/v1/technology/ipos/trademarks`)
+  const { data } = await Request.get(`https://api.data.gov.sg/v1/technology/ipos/patents`)
   // not providing date because default date is today
 
   const { items: applications } = data

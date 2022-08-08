@@ -1,10 +1,10 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
+import Request from '../../Request'
+import * as cheerio from 'cheerio'
 
 const BASE_URL = `http://newsroom.saputo.com/`
 
 const newSaputoMuncher = async () => {
-  const { data } = await axios.get(`${BASE_URL}`)
+  const { data } = await Request.get(`${BASE_URL}`)
 
   const $ = cheerio.load(data)
   console.warn($.html(`.result > .inner `))

@@ -1,4 +1,4 @@
-import axios from 'axios'
+import Request from '../../Request'
 import type { Item } from 'feed'
 import { scrapeArticleContent } from '../utils'
 import type { IndividualSiteMuncher } from '../../types'
@@ -7,7 +7,7 @@ const BASE_URL = `https://www.pdpc.gov.sg`
 
 const announcementMuncher: IndividualSiteMuncher = async () => {
   try {
-    const { data } = await axios.post(
+    const { data } = await Request.post(
       `${BASE_URL}/api/pdpcannouncements/getannouncementlisting`,
       {
         page: 1,

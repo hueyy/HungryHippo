@@ -1,11 +1,11 @@
-import axios from 'axios'
+import Request from '../../Request'
 import type { Item } from 'feed'
 import type { IndividualSiteMuncher } from '../../types'
 
 const BASE_URL = `https://www.pdpc.gov.sg`
 
 const enforcementMuncher: IndividualSiteMuncher = async () => {
-  const { data } = await axios.post(
+  const { data } = await Request.post(
     `${BASE_URL}/api/pdpcenforcementcases/getenforcementcasestandardlisting`,
     {
       page: 1,

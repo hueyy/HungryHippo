@@ -1,5 +1,5 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
+import Request from '../../Request'
+import * as cheerio from 'cheerio'
 import { cleanup } from '../../../../utils/Helper'
 import type { IndividualSiteMuncher } from '../../types'
 
@@ -7,7 +7,7 @@ const BASE_URL = `https://www.law.hku.hk`
 const FULL_URL = `${BASE_URL}/events`
 
 const hkuEventsMuncher: IndividualSiteMuncher = async () => {
-  const { data } = await axios.get(FULL_URL)
+  const { data } = await Request.get(FULL_URL)
   const $ = cheerio.load(data)
 
   const items = $(`.news_box.enews .events_box > .aside_inner_box`).map((_, element) => ({

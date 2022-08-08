@@ -1,17 +1,16 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
-import qs from 'qs'
+import Request from '../../Request'
+import { IndividualSiteMuncher } from '../../types'
 
 const BASE_URL = `https://www.bakermckenzie.com`
 const site = `${BASE_URL}/en/insight`
 
-const insightMuncher = async (_, {
+const insightMuncher: IndividualSiteMuncher = async (_, {
   services = ``,
   locations = ``,
-} = { locations: ``, services: `` }) => {
+}) => {
   const request = {
     AsiaPacificFilters: {
-      Filter: locations.split(`,`).map(l => ({
+      Filter: locations.split(`,`).map(() => ({
         ID: locations,
 				IsDisplayed: true,
 				IsEnabled: true,
@@ -33,7 +32,7 @@ const insightMuncher = async (_, {
     Skip: 0,
     Take: 20
   }
-  const { data } = await axios.post(
+  const { data } = await Request.post(
     `https://www.bakermckenzie.com/en/api/sitecore/insights/search`,
     request
   )

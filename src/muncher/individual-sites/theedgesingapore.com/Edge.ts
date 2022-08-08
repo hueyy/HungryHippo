@@ -1,11 +1,11 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
+import Request from '../Request'
+import * as cheerio from 'cheerio'
 import type { IndividualSiteMuncher } from '../types'
 
 const BASE_URL = `https://www.theedgesingapore.com`
 
 const edgeMuncher: IndividualSiteMuncher = async (url) => {
-  const { data } = await axios.get(url || `${BASE_URL}/section/latest`)
+  const { data } = await Request.get(url || `${BASE_URL}/section/latest`)
 
   const $ = cheerio.load(data)
 

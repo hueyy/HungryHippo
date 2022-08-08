@@ -1,11 +1,11 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
+import Request from '../Request'
+import * as cheerio from 'cheerio'
 import type { IndividualSiteMuncher } from '../types'
 
 const BASE_URL = `https://www.rollonfriday.com`
 
 const RollOnFridayMuncher: IndividualSiteMuncher = async () => {
-  const resp = await axios.get(BASE_URL)
+  const resp = await Request.get(BASE_URL)
 
   const $ = cheerio.load(resp.data)
 

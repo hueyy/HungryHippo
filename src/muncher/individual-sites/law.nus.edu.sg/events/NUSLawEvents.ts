@@ -3,6 +3,19 @@ import { chromium } from 'playwright-chromium'
 const BASE_URL = `http://law.nus.edu.sg`
 const FULL_URL = `${BASE_URL}/events/`
 
+const getEventsOnPage = async (page) => {
+  await page.waitForLoadState()
+  const selector = `.row.event-page > .row-eq-height > .event-block`
+  await page.waitForSelector(selector)
+
+  return await page.$$eval(selector, (els) => els.map((element) => ({
+    content: element.innerHTML,
+    date: new Date(element.querySelector(`.event-date`).textContent.trim()),
+    link: element.querySelector(`a`).getAttribute(`href`),
+    title: element.querySelector(`h5`).textContent.trim(),
+  })))
+}
+
 const NUSLawNewsMuncher = async () => {
 
   const browser = await chromium.launch()
@@ -11,20 +24,6 @@ const NUSLawNewsMuncher = async () => {
   await page.goto(FULL_URL)
 
   let items = []
-
-  const getEventsOnPage = async (page) => {
-    await page.waitForLoadState()
-    const selector = `.row.event-page > .row-eq-height > .event-block`
-    await page.waitForSelector(selector)
-
-    const events = await page.$$eval(selector, (els) => els.map((el) => ({
-      title: el.querySelector(`h5`).textContent.trim(),
-      link: el.querySelector(`a`).getAttribute(`href`),
-      content: el.innerHTML,
-      date: new Date(el.querySelector(`.event-date`).textContent.trim()),
-    })))
-    return events
-  }
 
   try {
     items = [...(await getEventsOnPage(page))]
@@ -45,9 +44,9 @@ const NUSLawNewsMuncher = async () => {
   await browser.close()
 
   return {
-    title: `NUS Law Events`,
     items,
-    link: FULL_URL
+    link: FULL_URL,
+    title: `NUS Law Events`
   }
 }
 

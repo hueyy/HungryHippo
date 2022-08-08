@@ -1,4 +1,4 @@
-import axios from 'axios'
+import Request from '../../Request'
 import type { Item } from 'feed'
 import { scrapeArticleContent } from '../utils'
 import type { IndividualSiteMuncher } from '../../types'
@@ -6,7 +6,7 @@ import type { IndividualSiteMuncher } from '../../types'
 const BASE_URL = `https://www.pdpc.gov.sg`
 
 const eventsMuncher: IndividualSiteMuncher = async () => {
-  const { data } = await axios.post(
+  const { data } = await Request.post(
     `${BASE_URL}/api/pdpcevents/geteventslisting`,
     {
       page: 1,
@@ -38,13 +38,12 @@ const eventsMuncher: IndividualSiteMuncher = async () => {
     const itemsWithContent: Item[] = contentPromises.map(
       (result, index) => {
         const { description, privacy, ...others } = items[index]
-        return {
-        ...others,
-        content: `<p>${description}</p><p>${privacy}</p>${
-          result.status === `fulfilled`
+        const value = result.status === `fulfilled`
             ? result.value
             : ``
-          }`,
+        return {
+          ...others,
+          content: `<p>${description}</p><p>${privacy}</p>${value}`,
         }
       }
     )

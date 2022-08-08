@@ -42,7 +42,7 @@ const instagramMuncher = async handle => {
     const images = (sidecar?.edges
       ? sidecar.edges.map(({ node: { display_url } }) => display_url)
       : [image]
-    ).map(i => i.replace(/^http:\/\//, `https://`))
+    ).map(index => index.replace(/^http:\/\//, `https://`))
       .map(img => `<img src="${img}" />`)
 
     return {

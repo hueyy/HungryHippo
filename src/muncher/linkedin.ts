@@ -1,6 +1,6 @@
 import axios from 'axios'
-import cheerio from 'cheerio'
-import type { IndividualSiteMuncher } from '../individual-sites/types'
+import * as cheerio from 'cheerio'
+import type { IndividualSiteMuncher } from './individual-sites/types'
 
 const BASE_URL = `https://www.linkedin.com`
 

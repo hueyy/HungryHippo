@@ -1,11 +1,11 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
+import Request from '../Request'
+import * as cheerio from 'cheerio'
 
 const BASE_URL = `http://greenbag.org`
 const FULL_URL = `${BASE_URL}/archive/green_bag_tables_of_contents.html`
 
 const greenbagMuncher = async () => {
-  const { data } = await axios.get(FULL_URL)
+  const { data } = await Request.get(FULL_URL)
 
   const $ = cheerio.load(data)
 

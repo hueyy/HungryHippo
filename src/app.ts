@@ -28,7 +28,7 @@ app.use((request, response, next) => {
     }
   }
 
-  response.header({ 'Cache-Control': `public, max-age=${60 * 10}` }) // standard cache of 10 minutes
+  response.header({ 'Cache-Control': `public, max-age=${60 * 60}` }) // standard cache of 1 hour
   next()
 })
 

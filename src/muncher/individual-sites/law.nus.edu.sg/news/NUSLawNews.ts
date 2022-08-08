@@ -16,12 +16,12 @@ const NUSLawNewsMuncher = async () => {
     await page.waitForLoadState()
     await page.waitForSelector(`#news-listing-widget .col-lg-12.row-eq-height`)
 
-    items = await page.$$eval(`#news-listing-widget .col-lg-12.row-eq-height`, (els) => els.map((el) => ({
-      title: el.querySelector(`.news-title`).textContent.trim(),
-      link: el.querySelector(`a`).getAttribute(`href`),
-      content: el.innerHTML,
-      date: new Date(el.querySelector(`.news-date`).textContent.trim()),
-      image: el.querySelector(`.news-image > img`).getAttribute(`src`)
+    items = await page.$$eval(`#news-listing-widget .col-lg-12.row-eq-height`, (els) => els.map((element) => ({
+      content: element.innerHTML,
+      date: new Date(element.querySelector(`.news-date`).textContent.trim()),
+      image: element.querySelector(`.news-image > img`).getAttribute(`src`),
+      link: element.querySelector(`a`).getAttribute(`href`),
+      title: element.querySelector(`.news-title`).textContent.trim()
     })))
 
 
@@ -33,9 +33,9 @@ const NUSLawNewsMuncher = async () => {
   await browser.close()
 
   return {
-    title: `NUS Law Media`,
     items,
-    link: FULL_URL
+    link: FULL_URL,
+    title: `NUS Law Media`
   }
 }
 

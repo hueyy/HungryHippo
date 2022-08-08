@@ -1,11 +1,11 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
+import Request from '../../Request'
+import * as cheerio from 'cheerio'
 import type { IndividualSiteMuncher } from '../../types'
 
 const BASE_URL = `https://8newsquare.co.uk`
 
 const newSquareMuncher: IndividualSiteMuncher = async () => {
-  const { data } = await axios.get(`${BASE_URL}/news`)
+  const { data } = await Request.get(`${BASE_URL}/news`)
   const $ = cheerio.load(data)
 
   const items = $(`#page .entry-content .blocks > .block`).map((_, element) => ({

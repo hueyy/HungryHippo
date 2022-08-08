@@ -1,7 +1,9 @@
 import qs from 'qs'
 import axios from 'axios'
-import type { AssembleFeedOptions } from '../../digestor'
-import { hash } from '../../utils/Helper'
+import type { AssembleFeedOptions } from '../digestor'
+import { hash } from '../utils/Helper'
+import { setupCache } from 'axios-cache-interceptor'
+import fileStorage from '../utils/FileStorage'
 
 type Parameters_ = {
   q: string,
@@ -25,12 +27,19 @@ const githubMuncher: GitHubMuncher = async ({
     }
   }
 
-  const githubClient = axios.create({
-    baseURL: `https://api.github.com`,
-    headers: {
-      'Authorization': `token ${process.env.GITHUB_OAUTH_TOKEN}`,
-    },
-  })
+  const githubClient = setupCache(
+    axios.create({
+      baseURL: `https://api.github.com`,
+      headers: {
+        'Authorization': `token ${process.env.GITHUB_OAUTH_TOKEN}`,
+      },
+    }),
+  {
+    interpretHeader: false,
+    storage: fileStorage,
+    ttl: 12 * 60 * 60 * 1000, // 12 hours
+  }
+)
 
   const { data } = await githubClient.get(`/search/code`, {
     params: { order, per_page: 100, q, sort }, 

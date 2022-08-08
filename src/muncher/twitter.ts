@@ -1,13 +1,22 @@
 import axios from 'axios'
-import cheerio from 'cheerio'
+import * as cheerio from 'cheerio'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
+import { setupCache } from 'axios-cache-interceptor'
+import fileStorage from '../utils/FileStorage'
 
 dayjs.extend(customParseFormat)
 
-const twitterClient = axios.create({
-  baseURL: `https://mobile.twitter.com`
-})
+const twitterClient = setupCache(
+  axios.create({
+    baseURL: `https://mobile.twitter.com`
+  }),
+  {
+    interpretHeader: false,
+    storage: fileStorage,
+    ttl: 12 * 60 * 60 * 1000, // 12 hours
+  }
+)
 
 const parseTwitterDate = (dateString) => {
   const cleanDateString = dateString.trim()
@@ -18,7 +27,7 @@ const parseTwitterDate = (dateString) => {
   )
   if (isRelativeHour) {
     return dayjs().subtract(
-      cleanDateString.slice(0, cleanDateString.length - 1),
+      cleanDateString.slice(0, - 1),
       `hour`
     ).toDate()
   }
@@ -39,7 +48,6 @@ const getImage = async (tweetId) => {
     return imageURL.replace(`:small`, ``)
   }
   // sensitive media
-  return null
 }
 
 const twitterMuncher = async (handle) => {
@@ -49,9 +57,9 @@ const twitterMuncher = async (handle) => {
   const accountDescription = $(`#main_content .profile td.details .bio`).text().trim()
   const accountProfileImage = $(`#main_content .profile td.avatar img`).attr(`src`).replace(`normal`, `400x400`)
   const tweets = await Promise.all(
-    $(`#main_content .timeline table.tweet`).map(async (i, el) => {
-      const isRetweet = $(`.tweet-content .tweet-social-context`, el).text().indexOf(`retweeted`) > 0
-      const isReply = $(`.tweet-content .tweet-reply-context`, el).text().indexOf(`Replying to`) > 0
+    $(`#main_content .timeline table.tweet`).map(async (index, element) => {
+      const isRetweet = $(`.tweet-content .tweet-social-context`, element).text().indexOf(`retweeted`) > 0
+      const isReply = $(`.tweet-content .tweet-reply-context`, element).text().indexOf(`Replying to`) > 0
       let prepend = ``
       if (isRetweet) {
         prepend = `RT: `
@@ -59,24 +67,26 @@ const twitterMuncher = async (handle) => {
         prepend = `Reply: `
       }
 
+      const authorPath = $(`tr.tweet-header .user-info a`, element).attr(`href`)
       const author = {
-        link: `https://twitter.com${$(`tr.tweet-header .user-info a`, el).attr(`href`)}`,
-        name: $(`tr.tweet-header .user-info .fullname`, el).text(),
+        link: `https://twitter.com${authorPath}`,
+        name: $(`tr.tweet-header .user-info .fullname`, element).text(),
       }
 
-      const date = parseTwitterDate($(`.tweet-header .timestamp`, el).text())
+      const date = parseTwitterDate($(`.tweet-header .timestamp`, element).text())
 
-      const tweetId = $(`tr.tweet-container .tweet-text`, el).data(`id`)
+      const tweetId = $(`tr.tweet-container .tweet-text`, element).data(`id`)
+      const tweetContent = $(`tr.tweet-container .tweet-text`, element).text().trim()
       const result = {
         author: [author],
-        content: $(el).html(),
+        content: $(element).html(),
         date,
+        image: undefined,
         link: `https://twitter.com/${handle}/status/${tweetId}`,
-        title: `${prepend}${$(`tr.tweet-container .tweet-text`, el).text().trim()}`,
-        image: null,
+        title: `${prepend}${tweetContent}`,
       }
 
-      const hasImage = result.title.indexOf(`pic.twitter.com/`) >= 0
+      const hasImage = result.title.includes(`pic.twitter.com/`)
       if (hasImage) {
         result.image = await getImage(tweetId)
         result.content += `<img src=${result.image} />`

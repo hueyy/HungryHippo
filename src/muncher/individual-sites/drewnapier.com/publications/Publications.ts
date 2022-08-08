@@ -1,5 +1,5 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
+import Request from '../../Request'
+import * as cheerio from 'cheerio'
 import type { IndividualSiteMuncher } from '../../types'
 
 const BASE_URL = `https://www.drewnapier.com`
@@ -7,8 +7,8 @@ const site = `${BASE_URL}/Publications?monthfrom=0&yearfrom=1&monthto=12&yearto=
 
 const lawRefromMuncher: IndividualSiteMuncher = async (_, {
   practice = ``
-} = { practice: `` }) => {
-  const { data } = await axios.get(`${site}&practice=${practice}`)
+}) => {
+  const { data } = await Request.get(`${site}&practice=${practice}`)
 
   const $ = cheerio.load(data)
 

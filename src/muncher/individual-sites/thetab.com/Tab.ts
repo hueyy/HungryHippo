@@ -1,10 +1,10 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
+import Request from '../Request'
+import * as cheerio from 'cheerio'
 
 const TheTabMuncher = async (
   url
 ) => {
-  const resp = await axios.get(url)
+  const resp = await Request.get(url)
 
   const $ = cheerio.load(resp.data)
 

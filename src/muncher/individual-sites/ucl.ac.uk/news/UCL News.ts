@@ -1,7 +1,7 @@
-import axios from 'axios'
+import Request from "../../Request"
 
 const UCLNewsMuncher = async (url, { title = `UCL News`, description = ``, image = ``, link = `` } = {}) => {
-  const resp = await axios.get(url)
+  const resp = await Request.get(url)
 
   const {
     response: {

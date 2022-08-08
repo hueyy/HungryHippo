@@ -1,12 +1,12 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
+import Request from '../Request'
+import * as cheerio from 'cheerio'
 import type { IndividualSiteMuncher } from '../types'
 
 const BASE_URL = `https://www.dyoung.com`
 const url = `${BASE_URL}/en/knowledgebank/articles`
 
 const dYoungMuncher: IndividualSiteMuncher = async () => {
-  const { data } = await axios.get(url)
+  const { data } = await Request.get(url)
   const $ = cheerio.load(data)
 
   const items = $(`.c-news-section .c-news-item`).map((_, element) => ({

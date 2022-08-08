@@ -1,12 +1,12 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
+import Request from '../../Request'
+import * as cheerio from 'cheerio'
 import type { IndividualSiteMuncher } from '../../types'
 
 const BASE_URL = `https://journalsonline.academypublishing.org.sg`
 const FULL_URL = `${BASE_URL}/E-First/Singapore-Academy-of-Law-Annual-Review-of-Singapore-Cases`
 
 const annualReviewMuncher: IndividualSiteMuncher = async () => {
-  const { data } = await axios.get(FULL_URL)
+  const { data } = await Request.get(FULL_URL)
   const $ = cheerio.load(data)
 
   const items = $(`#dnn_ctr570_View_grdeFirstDtls > tbody > tr > td`).map((_, element) => ({

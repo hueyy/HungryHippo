@@ -7,7 +7,6 @@ module.exports = {
     `eslint:recommended`,
     `plugin:node/recommended`,
     `plugin:@typescript-eslint/recommended`,
-    `plugin:security/recommended`,
     `plugin:sonarjs/recommended`,
     `plugin:unicorn/recommended`,
     `plugin:import/errors`,
@@ -25,7 +24,6 @@ module.exports = {
   parser: `@typescript-eslint/parser`,
   plugins: [
     `json-format`,
-    `security`,
     `disable`,
     `no-secrets`,
     `sonarjs`,
@@ -49,7 +47,6 @@ module.exports = {
       `error`,
       `backtick`
     ],
-    "security/detect-non-literal-require": `off`,
     semi: [
       `warn`,
       `never`

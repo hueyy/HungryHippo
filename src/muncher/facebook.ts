@@ -1,8 +1,8 @@
 import axios from 'axios'
-import cheerio from 'cheerio'
+import * as cheerio from 'cheerio'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
-import type { AssembleFeedOptions } from '../../digestor'
+import type { AssembleFeedOptions } from '../digestor'
 
 type FacebookMuncher = (username: string) => Promise<AssembleFeedOptions>
 

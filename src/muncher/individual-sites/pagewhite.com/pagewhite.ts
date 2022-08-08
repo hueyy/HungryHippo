@@ -1,11 +1,11 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
+import Request from '../Request'
+import * as cheerio from 'cheerio'
 
 const BASE_URL = `https://www.pagewhite.com`
 const FULL_URL = `${BASE_URL}/information-hub`
 
 const pageWhiteMuncher = async () => {
-  const { data } = await axios.get(FULL_URL)
+  const { data } = await Request.get(FULL_URL)
 
   const $ = cheerio.load(data)
 
