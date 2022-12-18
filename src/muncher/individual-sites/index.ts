@@ -37,6 +37,7 @@ import TheCrimson from './thecrimson.com'
 import TheTab from './thetab.com'
 import UCCIE from './ucc.ie'
 import UCL from './ucl.ac.uk'
+import HealthprofessionalsGovSg from './healthprofessionals.gov.sg'
 
 export default {
   '11southsquare.com': ElevenSouthSquare,
@@ -54,6 +55,7 @@ export default {
   'ejlt.org': EJLT,
   'enyolaw.com': EnyoLaw,
   'greenbag.org': Greenbag,
+  'healthprofessionals.gov.sg': HealthprofessionalsGovSg,
   'iamgoing.co.uk': IAmGoing,
   'law.hku.hk': HKULaw,
   'law.nus.edu.sg': NUSLaw,

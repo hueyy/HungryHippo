@@ -10,7 +10,6 @@
     "build": "babel src -d dist --extensions \".ts\" --copy-files --source-maps",
     "lint:staged": "lint-staged",
     "prepare": "husky install",
-    "start": "node dist/app.js",
     "start:dev": "nodemon -e ts --exec npm run babel-node",
     "start:prod": "node dist/app",
     "test": "echo \"No tests\" && exit 0"

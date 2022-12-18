@@ -3,7 +3,9 @@ import { setupCache } from "axios-cache-interceptor"
 import fileStorage from '../../utils/FileStorage'
 
 const Request = setupCache(
-  axios.create(),
+  axios.create({
+    timeout: 10_000,
+  }),
   {
     interpretHeader: false,
     methods: [`get`, `post`],
