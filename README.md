@@ -1,6 +1,6 @@
 # HungryHippo
 
-![Docker Image Version (latest by date)](https://img.shields.io/docker/v/hueyy/hungryhippo?sort=date)
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/hueyy/hungryhippo?label=docker%20version)
 
 <img src="https://live.staticflickr.com/3436/3225591269_5001acef98_b_d.jpg" width="300" />
 
