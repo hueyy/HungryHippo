@@ -3,11 +3,12 @@ FROM node:current-alpine
 WORKDIR /app
 COPY package*.json ./
 
-RUN npm ci
+RUN npm install -g pnpm && \
+    pnpm i
 COPY . .
-RUN npm run build && chown node:node /app
+RUN pnpm run build && chown node:node /app
 
 EXPOSE ${PORT}
 
 USER node
-CMD [ "npm", "run", "start:prod" ]
+CMD [ "pnpm", "run", "start:prod" ]

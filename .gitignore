@@ -3,3 +3,4 @@ node_modules
 dist
 cache.json
 test.html
+package-lock.json

@@ -20,11 +20,13 @@ const SALPractitionerMuncher: IndividualSiteMuncher = async (_, { area }) => {
     title: $(`.artListItem > p:nth-of-type(1)`, element).text().trim()
   })).get().filter(item => item.title.length > 0)
 
+  const feedTitle = $(`title`).first().text().trim()
+
   return {
     description: $(`meta[property='og:description']`).text().trim(),
     items: items,
     link: site,
-    title: $(`title`).first().text().trim()
+    title: `${feedTitle} | SAL Practitioner`
   }
 }
 
