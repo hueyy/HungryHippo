@@ -38,6 +38,7 @@ import TheTab from './thetab.com'
 import UCCIE from './ucc.ie'
 import UCL from './ucl.ac.uk'
 import HealthprofessionalsGovSg from './healthprofessionals.gov.sg'
+import silecpdcentreSG from './silecpdcentre.sg'
 
 export default {
   '11southsquare.com': ElevenSouthSquare,
@@ -72,6 +73,7 @@ export default {
   'sal.org.sg': SAL,
   'saputo.com': Saputo,
   'scca.org.sg': SCCA,
+  'silecpdcentre.sg': silecpdcentreSG,
   'singaporelawblog.sg': SingaporeLawBlog,
   'telegraph.co.uk': Telegraph,
   'thecrimson.com': TheCrimson,

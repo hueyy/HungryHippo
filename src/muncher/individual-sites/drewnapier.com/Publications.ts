@@ -1,6 +1,7 @@
-import Request from '../../Request'
+import Request from '../Request'
 import * as cheerio from 'cheerio'
-import type { IndividualSiteMuncher } from '../../types'
+import type { IndividualSiteMuncher } from '../types'
+import { replaceRelativeURLs } from '../../../utils/Helper'
 
 const BASE_URL = `https://www.drewnapier.com`
 const site = `${BASE_URL}/Publications?monthfrom=0&yearfrom=1&monthto=12&yearto=9998&type=`
@@ -15,7 +16,7 @@ const lawRefromMuncher: IndividualSiteMuncher = async (_, {
   const items = $(`ul.resource-list > li.resource-item`).map((_, element) => {
     const href = $(`h3 > a`, element).attr(`href`)
     return ({
-      content: $(element).html(),
+      content: replaceRelativeURLs($(element).html(), BASE_URL),
       date: new Date(),
       link: `${BASE_URL}/${href}`,
       title: $(`h3`, element).text().trim(),

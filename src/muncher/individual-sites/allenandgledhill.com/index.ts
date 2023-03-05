@@ -1,4 +1,4 @@
-import knowledgehighlights from './knowledgehighlights'
+import knowledgehighlights from './KnowledgeHighlights'
 
 export default {
   knowledgehighlights

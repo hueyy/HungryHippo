@@ -1,4 +1,5 @@
-import Request from '../../Request'
+import Request from '../Request'
+import { replaceRelativeURLs } from '../../../utils/Helper'
 import * as cheerio from 'cheerio'
 
 const BASE_URL = `https://www.allenandgledhill.com`
@@ -12,7 +13,7 @@ const agMuncher = async () => {
   const items = $(`.container > .row.row-md-2 > .col-md-6 > article`).map((_, element) => {
     const imagePath = $(`.card-media > picture > img`, element).attr(`src`)
     return {
-      content: $(element).html(),
+      content: replaceRelativeURLs($(element).html(), BASE_URL),
       date: new Date($(`.card-body > p.date > span:nth-of-type(2)`, element).text()),
       image: `${BASE_URL}/${imagePath}`,
       link: $(`.card-body > a`, element).attr(`href`),

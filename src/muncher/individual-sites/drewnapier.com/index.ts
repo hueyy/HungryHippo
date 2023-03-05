@@ -1,4 +1,4 @@
-import publications from './publications'
+import publications from './Publications'
 
 export default {
   publications
