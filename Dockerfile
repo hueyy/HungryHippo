@@ -4,7 +4,8 @@ WORKDIR /app
 COPY package*.json ./
 
 RUN npm install -g pnpm && \
-    pnpm i
+    pnpm i && \
+    npx playwright install
 COPY . .
 RUN pnpm run build && chown node:node /app
 
