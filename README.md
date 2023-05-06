@@ -1,6 +1,7 @@
 # HungryHippo
 
 ![Docker Image Version (latest semver)](https://img.shields.io/docker/v/hueyy/hungryhippo?label=docker%20version)
+![GitHub](https://img.shields.io/badge/licence-EUPL--1.2-blue)
 
 <img src="https://live.staticflickr.com/3436/3225591269_5001acef98_b_d.jpg" width="300" />
 
@@ -34,7 +35,7 @@ If something isn't working or if you would like a new site to be added, please [
 
 ## Running HungryHippo
 
-With docker-compose:
+With docker:
 
 ```bash
   docker build . -t hungryhippo
