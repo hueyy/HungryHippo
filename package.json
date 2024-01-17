@@ -1,6 +1,6 @@
 {
   "name": "hungryhippo",
-  "version": "1.0.10",
+  "version": "1.1.0",
   "description": "creates feeds where there were none before",
   "license": "EUPL-1.2",
   "author": "Huey <hello@huey.xyz>",
@@ -20,9 +20,6 @@
     ],
     "*.{ts,js,json}": [
       "eslint --fix --ignore-pattern"
-    ],
-    "package.json": [
-      "npx sort-package-json"
     ]
   },
   "dependencies": {
