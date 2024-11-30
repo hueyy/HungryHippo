@@ -1,7 +1,7 @@
 # HungryHippo
 
-![Docker Image Version (latest semver)](https://img.shields.io/docker/v/hueyy/hungryhippo?label=docker%20version)
-![GitHub](https://img.shields.io/badge/licence-EUPL--1.2-blue)
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/hueyy/hungryhippo?label=docker%20version)](https://hub.docker.com/r/hueyy/hungryhippo/tags)
+[![GitHub](https://img.shields.io/badge/licence-EUPL--1.2-blue)](./LICENCE)
 
 <img src="https://live.staticflickr.com/3436/3225591269_5001acef98_b_d.jpg" width="300" />
 

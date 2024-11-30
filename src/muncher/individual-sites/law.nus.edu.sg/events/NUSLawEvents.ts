@@ -1,4 +1,4 @@
-import { chromium } from 'playwright-chromium'
+import { chromium } from 'playwright'
 
 const BASE_URL = `http://law.nus.edu.sg`
 const FULL_URL = `${BASE_URL}/events/`

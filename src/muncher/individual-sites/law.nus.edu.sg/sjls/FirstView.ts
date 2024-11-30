@@ -1,4 +1,4 @@
-import { chromium } from 'playwright-chromium'
+import { chromium } from 'playwright'
 
 const BASE_URL = `https://law.nus.edu.sg/sjls/first-view-articles/`
 

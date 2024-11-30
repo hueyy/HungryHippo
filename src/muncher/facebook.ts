@@ -1,15 +1,16 @@
 import axios from 'axios'
-import * as cheerio from 'cheerio'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import type { AssembleFeedOptions } from '../digestor'
+import { chromium } from 'playwright'
 
-type FacebookMuncher = (username: string) => Promise<AssembleFeedOptions>
+type FacebookMuncherOptions = { group?: boolean}
+type FacebookMuncher = (username: string, FacebookMuncherOptions) => Promise<AssembleFeedOptions>
 
 dayjs.extend(customParseFormat)
 
 const facebookClient = axios.create({
-  baseURL: `https://mobile.facebook.com`
+  baseURL: `https://www.facebook.com`
 })
 
 const parseFacebookDate = (dateString) => {
@@ -19,30 +20,65 @@ const parseFacebookDate = (dateString) => {
   return dayjs(dateString, `D MMMM [at] HH:mm`).toDate()
 }
 
-const facebookMuncher: FacebookMuncher = async username => {
-  const resp = await facebookClient.get(`/${username}`)
-  const $ = cheerio.load(resp.data)
+const facebookMuncher: FacebookMuncher = async (username, { group = false} = {}) => {
+  if(group === true){
+    const url = `https://www.facebook.com/${username}`
+    const browser = await chromium.launch()
+    const page = await browser.newPage()
 
-  const name = $(`#u_0_5`).text().trim()
-  const description = $(`meta[property="og:description"]`).attr(`content`)
-  const image = $(`meta[property="og:image"]`).attr(`content`)
+    await page.goto(url)
 
-  const items = $(`#recent>div>div>div`).map((index, element) => {
-    const path = $(`div:nth-of-type(2)>div:nth-of-type(2)>a:last-of-type`).attr(`href`)
-    return {
-      content: $(element).html(),
-      date: parseFacebookDate($(`div:nth-of-type(2)>div:first-of-type>abbr`, element).text().trim()),
-      link: `https://facebook.com${path}`,
-      title: $(`div:first-of-type>div:nth-of-type(2)>span>p`, element).map((pIndex, p) => $(p).text().trim()).get().join(`\n`)
+    await page.waitForLoadState()
+
+    const titleElement = page.locator(`head > title`)
+    const title = await titleElement.evaluate(el => el.innerText)
+
+    const descriptionElement = page.locator(`meta[name="description"]`)
+    const description = await descriptionElement.evaluate(el => el.content)
+
+    const postElements = page.locator(`div[role="feed"] > div div.html-div > div.html-div:has(> div[class=""])`)
+    console.log(await postElements.all())
+    console.log(await postElements.evaluateAll((el: any) => el.innerHTML))
+
+  } else {
+    const url = `https://www.facebook.com/${username}`
+    const browser = await chromium.launch()
+    const page = await browser.newPage()
+
+    await page.goto(url)
+
+    await page.waitForLoadState()
+
+    const titleElement = page.locator(`head > title`)
+    const title = await titleElement.evaluate(el => el.innerText)
+
+    const descriptionElement = page.locator(`meta[name="description"]`)
+    const description = await descriptionElement.evaluate(el => el.content)
+
+    let items = []
+
+    try {
+      const postElements = await page.locator(`div[aria-posinset]`).all()
+      items = await Promise.all(postElements.map(async el => {
+        return {
+          title: ``,
+          date: new Date(),
+          link: await el.locator(`span > span > a[role="link"]`).getAttribute(`href`),
+          content: await el.innerHTML()
+        }
+      }))
+    } catch (error) {
+      console.error(error)
     }
-  }).get()
 
-  return {
-    description,
-    image,
-    items,
-    link: `https://facebook.com/${username}`,
-    title: name
+    await browser.close()
+
+    return {
+      items,
+      link: url,
+      title,
+      description
+    }
   }
 }
 

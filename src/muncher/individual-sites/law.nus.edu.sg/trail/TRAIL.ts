@@ -1,6 +1,6 @@
 import * as cheerio from 'cheerio'
 import type { IndividualSiteMuncher } from "../../types"
-import { chromium } from "playwright-chromium"
+import { chromium } from "playwright"
 import { decode } from 'html-entities'
 
 const BASE_URL = `https://law.nus.edu.sg`
