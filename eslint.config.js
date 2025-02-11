@@ -1,8 +1,5 @@
 // eslint-disable-next-line unicorn/prefer-module
 module.exports = {
-  env: {
-    node: true
-  },
   extends: [
     `eslint:recommended`,
     `plugin:node/recommended`,
@@ -55,5 +52,11 @@ module.exports = {
     "sort-keys-fix/sort-keys-fix": 2,
     "unicorn/filename-case": `off`,
     "unicorn/prefer-node-protocol": `off`
-  }
+  },
+  ignores: [
+    "node_modules",
+    "package-lock.json",
+    "dist",
+    "!.eslintrc.js"
+  ]
 }

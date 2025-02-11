@@ -1,5 +1,5 @@
-import Request from "../Request"
 import * as cheerio from 'cheerio'
+import Request from "../Request"
 
 const BASE_URL = `https://www.silecpdcentre.sg`
 const CALAS_URL = `${BASE_URL}/calas/`
